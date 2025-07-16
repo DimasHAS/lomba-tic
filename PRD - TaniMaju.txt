@@ -1,0 +1,260 @@
+﻿Product Requirements Document: AgriDash
+Versi
+	Tanggal
+	Penulis
+	Status
+	2.0
+	16 Juli 2025
+	Gemini
+	Final Draft
+	1.0
+	16 Juli 2025
+	Gemini
+	Draft Awal
+	1. Pendahuluan
+1.1 Latar Belakang & Masalah
+Sektor pertanian Indonesia, meskipun menjadi pilar ekonomi dan ketenagakerjaan, menghadapi tantangan signifikan akibat ketidakpastian iklim, serangan hama, dan kurangnya akses terhadap data agronomis yang akurat. Petani seringkali membuat keputusan krusial berdasarkan intuisi atau kebiasaan, yang meningkatkan risiko gagal panen dan menekan profitabilitas. Terdapat celah pasar yang jelas untuk platform yang berfokus pada intelijen agronomis dan dukungan keputusan, bukan hanya pada transaksi rantai pasok.
+1.2 Visi & Tujuan Produk
+Visi: Menjadi mitra intelijen proaktif di saku setiap petani Indonesia, mentransformasi pertanian dari reaktif menjadi prediktif.
+Tujuan: AgriDash bertujuan untuk menjadi platform digital terpusat yang memberdayakan petani dengan menyediakan data, analisis prediktif, dan alat bantu berbasis teknologi yang mudah diakses. Tujuannya adalah untuk membantu petani meningkatkan produktivitas, efisiensi, dan profitabilitas usaha tani mereka melalui keputusan yang lebih cerdas dan berbasis data.
+1.3 Lingkup (Scope)
+PRD ini mencakup persyaratan untuk pengembangan platform web AgriDash, mulai dari Minimum Viable Product (MVP) hingga fitur-fitur lanjutan yang akan dikembangkan di fase berikutnya. Ini mencakup fungsionalitas untuk pengguna akhir (petani), arsitektur teknis, dan rencana rilis.
+2. Pengguna Target & Persona
+2.1 Persona Utama: Pak Budi (Petani Modern)
+* Demografi: Usia 35-55 tahun, tinggal di area pedesaan dengan akses internet yang bervariasi.
+* Latar Belakang: Mengelola 1-3 Ha lahan padi dan jagung. Akrab dengan penggunaan smartphone (terutama untuk WhatsApp dan Facebook).
+* Tujuan: Ingin meningkatkan hasil panen dan pendapatan, mengurangi kerugian akibat hama dan cuaca buruk, serta menekan biaya pupuk.
+* Tantangan: Kesulitan mendapatkan informasi cuaca yang akurat, bingung mengidentifikasi penyakit tanaman baru, dan tidak yakin kapan waktu terbaik untuk memupuk atau menyemprot.
+2.2 Persona Sekunder: Pengurus Kelompok Tani
+* Latar Belakang: Bertanggung jawab untuk menyebarkan informasi dan teknologi baru kepada anggota kelompoknya.
+* Tujuan: Mencari solusi yang dapat diadopsi oleh banyak anggota untuk meningkatkan produktivitas kelompok secara keseluruhan.
+* Tantangan: Membutuhkan alat yang mudah disosialisasikan dan menunjukkan manfaat yang jelas dan cepat.
+3. Prinsip & Tech Stack
+* Prinsip Desain: Sederhana & Intuitif, Berorientasi pada Aksi, Mobile-First.
+* Tech Stack:
+   * Framework: Next.js
+   * Database & Autentikasi: Supabase
+   * Styling: Tailwind CSS
+   * API Pihak Ketiga: Google Weather API (untuk cuaca MVP), API Google AI (untuk LLM MVP).
+4. Persyaratan Fungsional (Fitur)
+4.1 Manajemen Pengguna & Autentikasi
+* User Story: Sebagai pengguna baru, saya ingin bisa mendaftar dengan mudah. Sebagai pengguna terdaftar, saya ingin bisa masuk dan keluar dengan aman.
+* Persyaratan:
+   * Pendaftaran: Form dengan input Nama, Email, Kata Sandi. Validasi email harus unik. Data disimpan di auth.users Supabase.
+   * Login: Form dengan Email dan Kata Sandi. Menggunakan Supabase Auth.
+   * Manajemen Sesi: Pengguna tetap login setelah menutup browser (menggunakan session/token).
+   * Logout: Tombol logout di profil pengguna yang menghapus sesi.
+   * Profil Pengguna: Halaman /profil di mana pengguna dapat melihat dan mengedit nama mereka, serta mendaftarkan lokasi utama (kabupaten/kecamatan) untuk personalisasi cuaca.
+4.2 Dashboard Utama (/)
+* User Story: Sebagai petani, setelah login, saya ingin melihat ringkasan kondisi pertanian saya secara sekilas agar saya tahu apa yang perlu menjadi fokus hari ini.
+* Persyaratan:
+   * Header Sambutan: Menampilkan "Selamat datang kembali, [Nama Pengguna]".
+   * Kartu Metrik Utama (Data dari Supabase):
+      * Total Lahan: SELECT SUM(luas) FROM lahan WHERE user_id = [current_user_id].
+      * Tanaman Aktif: SELECT COUNT(DISTINCT jenis_tanaman) FROM tanaman_aktif WHERE user_id = [current_user_id].
+      * Perkiraan Panen: SELECT MIN(perkiraan_panen) FROM tanaman_aktif WHERE user_id = [current_user_id].
+      * Cuaca Hari Ini: Memanggil API OpenWeatherMap berdasarkan lokasi di profil pengguna.
+   * Kartu Fitur Utama: Tautan navigasi ke halaman /dokter-tani, /cuaca, /kalkulator, dan /komunitas.
+   * Aktivitas Terkini: SELECT * FROM aktivitas_log WHERE user_id = [current_user_id] ORDER BY created_at DESC LIMIT 5.
+4.3 Dokter Tani (/dokter-tani)
+* User Story: Sebagai petani, ketika saya melihat gejala aneh pada tanaman, saya ingin bisa mengunggah fotonya dan mendapatkan diagnosis serta solusi secara instan.
+* Persyaratan MVP:
+   * Tombol "Unggah Foto" yang membuka file picker.
+   * Gambar yang diunggah disimpan di Supabase Storage dalam folder yang terstruktur per user_id.
+   * Tampilkan animasi loading selama 2-3 detik.
+   * Tampilkan hasil diagnosis dummy (contoh statis): "Terdeteksi: Penyakit Bercak Daun. Rekomendasi: Gunakan fungisida X."
+   * Setiap diagnosis (bahkan yang dummy) disimpan ke tabel diagnosis_log dengan user_id, image_url, dan hasil_diagnosis.
+* Persyaratan Fase 2 (Advanced):
+   * Integrasikan model klasifikasi gambar (Mason Model) yang di-deploy sebagai API.
+   * Hasil diagnosis yang ditampilkan adalah output dari model AI.
+   * Tampilkan tingkat keparahan (ringan, sedang, berat) berdasarkan output model.
+4.4 Prakiraan Cuaca (/cuaca)
+* User Story: Sebagai petani, saya ingin melihat prakiraan cuaca untuk beberapa hari ke depan agar saya bisa merencanakan aktivitas seperti penyiraman atau pemupukan.
+* Persyaratan:
+   * Menampilkan prakiraan cuaca untuk 7 hari ke depan dalam bentuk kartu harian.
+   * Setiap kartu menampilkan: Hari/Tanggal, Ikon Cuaca, Suhu Min/Maks, Kelembapan (%), Kecepatan Angin (km/j).
+   * Data diambil dari API OpenWeatherMap berdasarkan lokasi yang terdaftar di profil pengguna.
+4.5 Kalkulator Kebutuhan Tanam (/kalkulator)
+* User Story: Sebagai petani, sebelum memulai musim tanam, saya ingin bisa menghitung estimasi kebutuhan benih dan pupuk agar saya bisa menyiapkan modal yang tepat.
+* Persyaratan MVP:
+   * Form input: Pilih Lahan (dropdown dari data lahan pengguna), Pilih Tanaman (dropdown), Luas Lahan (otomatis terisi).
+   * Tombol "Hitung Kebutuhan".
+   * Gunakan rumus sederhana yang di-hardcode di frontend:
+      * Kebutuhan Benih Jagung = Luas (Ha) * 20 kg.
+      * Kebutuhan Pupuk Urea = Luas (Ha) * 150 kg.
+   * Tampilkan hasilnya dengan jelas di halaman.
+   * Simpan log kalkulasi ke aktivitas_log.
+* Persyaratan Fase 2 (Advanced):
+   * Kalkulasi dilakukan di backend.
+   * Rumus mempertimbangkan jenis tanaman dan rekomendasi resmi.
+   * Integrasikan dengan data satelit (NDVI) dan cuaca untuk rekomendasi dinamis (Mesin Optimasi Nutrisi).
+4.6 Info Harga Pasar & Rekomendasi Jual
+* Latar Belakang & Masalah yang Dipecahkan: Petani seringkali berada pada posisi tawar yang lemah karena kurangnya transparansi harga pasar. Mereka tidak tahu harga riil komoditas mereka di pasar induk, sehingga rentan terhadap harga rendah yang ditawarkan oleh tengkulak. Fitur ini secara langsung mengatasi masalah tersebut dengan menyediakan intelijen pasar.
+* User Story: Sebagai seorang petani, menjelang masa panen, saya ingin mengetahui harga jual komoditas saya di berbagai pasar terdekat agar saya bisa menjual hasil panen dengan harga terbaik dan tidak merugi.
+Persyaratan MVP (Minimum Viable Product):
+* Tampilan Halaman (/harga-pasar):
+   * Membuat halaman baru yang menampilkan daftar harga komoditas.
+   * Tampilan berupa tabel sederhana dengan kolom: Nama Komoditas, Satuan (kg), Harga Hari Ini, Lokasi Pasar, Tanggal Update.
+* Sumber Data (MVP):
+   * Untuk tahap awal, data tidak perlu diambil dari API yang kompleks. Lakukan web scraping secara berkala (misalnya, setiap hari) dari satu sumber data harga pangan nasional yang terpercaya, seperti Pusat Informasi Harga Pangan Strategis (PIHPS) Nasional atau portal sejenis.
+   * Simpan hasil scraping ke dalam sebuah tabel di Supabase bernama harga_komoditas.
+* Fungsionalitas:
+   * Pengguna dapat melihat daftar harga untuk 5-10 komoditas utama (padi, jagung, bawang merah, cabai, dll.).
+   * Terdapat filter sederhana untuk memilih provinsi atau kabupaten (berdasarkan data yang tersedia dari sumber scraping).
+Persyaratan Fase 2 (Advanced):
+* Grafik Tren Harga: Menampilkan grafik garis sederhana yang menunjukkan pergerakan harga sebuah komoditas dalam 7 atau 30 hari terakhir.
+* Notifikasi Cerdas: Terintegrasi dengan modul Tanaman Aktif. Jika perkiraan_panen kurang dari 14 hari, sistem dapat mengirimkan notifikasi: "Perhatian, panen padi Anda akan segera tiba. Harga gabah kering di pasar [Nama Pasar] saat ini adalah Rp 5.500/kg."
+* Rekomendasi Jual: Menggunakan data historis harga untuk memberikan saran sederhana, seperti: "Harga cabai cenderung naik di akhir pekan. Pertimbangkan untuk menahan penjualan selama 2 hari jika memungkinkan."
+* Perbandingan Pasar: Memungkinkan pengguna membandingkan harga satu komoditas di beberapa pasar terdekat.
+Implikasi pada Model Data (Skema Supabase)
+Tabel postingan dan balasan dihapus. Tabel baru ditambahkan:
+   * -- Tabel untuk menyimpan data harga komoditas dari scraping
+   * CREATE TABLE harga_komoditas (
+   *   id BIGSERIAL PRIMARY KEY,
+   *   nama_komoditas TEXT NOT NULL,
+   *   harga NUMERIC NOT NULL,
+   *   satuan TEXT NOT NULL DEFAULT 'kg',
+   *   nama_pasar TEXT,
+   *   lokasi_kabupaten TEXT,
+   *   lokasi_provinsi TEXT,
+   *   tanggal_update DATE NOT NULL,
+   *   created_at TIMESTAMPTZ DEFAULT now()
+   * );
+
+
+   * 4.7 Analytics & Settings (Hanya Navigasi di Mockup)
+* Untuk MVP, halaman /analytics dan /settings hanya akan menjadi placeholder atau menampilkan pesan "Fitur akan segera hadir".
+5. Persyaratan Non-Fungsional
+* Performa: Waktu muat halaman awal (First Contentful Paint) harus < 2 detik. Respons API < 500ms.
+* Keamanan: Semua kata sandi harus di-hash (ditangani oleh Supabase Auth). Menerapkan RLS (Row Level Security) di Supabase untuk memastikan pengguna hanya dapat mengakses datanya sendiri.
+* Skalabilitas: Arsitektur harus mampu menangani 10,000 pengguna aktif tanpa degradasi performa yang signifikan.
+* Usabilitas: Desain harus responsif dan berfungsi dengan baik di berbagai ukuran layar, dari ponsel hingga desktop. Alur kerja harus intuitif bagi pengguna yang tidak terlalu teknis.
+6. Model Data (Skema Supabase)
+-- Tabel untuk menyimpan data lahan milik pengguna
+CREATE TABLE lahan (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ nama_lahan TEXT NOT NULL,
+ luas NUMERIC NOT NULL, -- dalam Hektar
+ lokasi_kecamatan TEXT,
+ lokasi_kabupaten TEXT,
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Tabel untuk tanaman yang sedang aktif ditanam di lahan
+CREATE TABLE tanaman_aktif (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ lahan_id UUID REFERENCES lahan(id) ON DELETE CASCADE,
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ jenis_tanaman TEXT NOT NULL,
+ varietas TEXT,
+ tanggal_tanam DATE NOT NULL,
+ perkiraan_panen DATE,
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Tabel log untuk semua aktivitas penting pengguna
+CREATE TABLE aktivitas_log (
+ id BIGSERIAL PRIMARY KEY,
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ jenis_aktivitas TEXT NOT NULL, -- cth: 'DIAGNOSIS', 'KALKULASI'
+ deskripsi TEXT,
+ metadata JSONB, -- untuk menyimpan detail tambahan
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Tabel untuk riwayat diagnosis Dokter Tani
+CREATE TABLE diagnosis_log (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ image_url TEXT NOT NULL,
+ hasil_diagnosis JSONB, -- menyimpan hasil dari AI
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Tabel untuk postingan di Komunitas
+CREATE TABLE postingan (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ judul TEXT NOT NULL,
+ isi TEXT,
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Tabel untuk balasan di Komunitas
+CREATE TABLE balasan (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ postingan_id UUID REFERENCES postingan(id) ON DELETE CASCADE,
+ user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+ isi TEXT,
+ created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Aktifkan Row Level Security untuk semua tabel
+ALTER TABLE lahan ENABLE ROW LEVEL SECURITY;
+-- (Lanjutkan untuk semua tabel lainnya)
+
+7. Rencana Rilis & Peta Jalan
+Fase 1: Minimum Viable Product (MVP) - (Target: 3 Bulan)
+* Tujuan: Memvalidasi hipotesis inti bahwa petani mau menggunakan alat diagnosis foto dan forum komunitas.
+* Fitur Wajib:
+   1. Autentikasi Pengguna & Profil Sederhana.
+   2. Dashboard Utama dengan data statis atau dummy untuk kartu metrik.
+   3. Dokter Tani (dengan hasil diagnosis dummy).
+   4. Komunitani (forum posting dan balasan fungsional).
+   5. Prakiraan Cuaca (fungsional dengan API eksternal).
+Fase 2: Penguatan Produk Inti - (Target: Bulan 4-9)
+* Tujuan: Meningkatkan nilai produk dengan fitur prediktif dan kalkulasi yang lebih cerdas.
+* Fitur:
+   1. Dashboard Dinamis: Semua kartu metrik terhubung penuh dengan database.
+   2. Kalkulator Kebutuhan Tanam Cerdas: Menggunakan rumus yang lebih kompleks dan data rekomendasi.
+   3. Dokter Tani (AI-Powered): Mengintegrasikan versi pertama model AI untuk diagnosis.
+   4. Analytics Sederhana: Menampilkan grafik tren aktivitas pengguna.
+Fase 3: Kepemimpinan Pasar - (Target: Bulan 10-18)
+* Tujuan: Mengimplementasikan fitur-fitur AI paling canggih dan model bisnis.
+* Fitur:
+   1. Mesin Prediksi Panen & Optimasi Nutrisi.
+   2. Model Prediksi Wabah Hama.
+   3. Konsultan AI (LLM) Terintegrasi.
+   4. Implementasi Model Bisnis Freemium: Memperkenalkan fitur premium berbayar.
+8. Metrik Kesuksesan
+* Aktivasi (North Star Metric): % pengguna baru yang menyelesaikan setidaknya satu aksi inti (diagnosis atau kalkulasi) dalam minggu pertama.
+* Engagement:
+   * DAU/MAU (Daily Active Users / Monthly Active Users).
+   * Jumlah diagnosis yang dilakukan per pengguna aktif per bulan.
+   * Jumlah postingan dan balasan di Komunitani.
+* Retensi:
+   * Retensi Minggu ke-1 dan Bulan ke-1.
+* Kepuasan: Skor Umpan Balik Pengguna (misalnya, melalui survei sederhana di dalam aplikasi).
+9. Di Luar Lingkup (Out of Scope) untuk MVP
+* Sistem berlangganan dan pembayaran.
+* Fitur Analytics dan Settings yang fungsional.
+* Integrasi AI/ML yang sebenarnya (menggunakan hasil dummy).
+* Aplikasi mobile native (fokus pada web app responsif).
+* Dukungan multi-bahasa.
+* Notifikasi push atau email.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mockup Design:
