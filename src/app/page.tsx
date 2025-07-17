@@ -310,6 +310,56 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-16">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800">TaniMaju dalam Aksi</h1>
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            Saksikan bagaimana platform TaniMaju membantu petani di seluruh
+            Indonesia meningkatkan produktivitas, mengoptimalkan sumber daya, dan
+            meraih kesuksesan berkelanjutan.
+          </p>
+        </div>
+        <div className="mt-12">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="relative bg-green-200"
+              style={{ paddingBottom: "56.25%" }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-10 h-10 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      fillRule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <Image
+                alt="TaniMaju Platform Demo logo"
+                className="absolute top-4 left-4 h-6 object-contain"
+                width={100}
+                height={24}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0-ZNiJ_3SXbWuyLi_GB8BZOlunj333q4h5BE21xfumn8lqxlamAQBzi3m_r7noL6zEUEzZbA4iif1nFDCVjfLshOKRHIYlRl8tjIlWju77IQF3JtibhIuRrRetoHQxdRwZa1AZlrV822Kwph1QeHI8OY3_sNVw5FZKdXERK5b6JjQFH-_DLkHIdg_CwqZ2uEsy-VgdKef1Zcs0MsWU7P2iaVoEY2wPQzKeTQtN4RtJiIvKSROcIkcNHuLbv0sMAmQKOMDSEP5TVH"
+              />
+            </div>
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-gray-800">
+                Platform Overview: Transformasi Digital Pertanian
+              </h2>
+              <p className="mt-2 text-gray-600">
+                Demo lengkap fitur-fitur unggulan TaniMaju • 8:30
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
