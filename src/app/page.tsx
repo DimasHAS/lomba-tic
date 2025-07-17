@@ -833,7 +833,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center mb-6">
             <h1 className="text-2xl font-bold text-black">TaniMaju</h1>
-            <span className="bg-green-600 text-black text-xs font-bold px-2 py-1 rounded-md ml-2">
+            <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-md ml-2">
               AI
             </span>
           </div>
