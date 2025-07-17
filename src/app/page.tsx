@@ -1,17 +1,29 @@
+'use client';
+
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="container mx-auto px-8 py-12">
-      <header className="flex justify-between items-center mb-16">
+      <DynamicMotion.header
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex justify-between items-center mb-16"
+      >
         <div className="flex items-center">
           <div className="bg-green-600 text-white font-bold text-xl w-10 h-10 flex items-center justify-center rounded-md mr-3">
             T
           </div>
           <span className="text-2xl font-bold text-gray-800">TaniMaju</span>
         </div>
-      </header>
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      </DynamicMotion.header>
+      <DynamicMotion.main
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+      >
         <div className="pr-8">
           <div className="inline-flex items-center bg-white border border-gray-200 rounded-full py-1 px-1 mb-6">
             <span className="bg-green-100 text-green-700 text-sm font-semibold rounded-full px-3 py-1">
@@ -175,8 +187,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
-      <section className="py-16 mt-16">
+      </DynamicMotion.main>
+      <DynamicMotion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+        className="py-16 mt-16"
+      >
         <div className="text-left mb-12">
           <p className="text-lg text-gray-600">Teknologi Pertanian Cerdas</p>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
@@ -309,8 +326,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="py-16">
+      </DynamicMotion.section>
+      <DynamicMotion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.6 }}
+        className="py-16"
+      >
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800">TaniMaju dalam Aksi</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -359,8 +381,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="py-16">
+      </DynamicMotion.section>
+      <DynamicMotion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.8 }}
+        className="py-16"
+      >
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">
             Jelajahi Lebih Lanjut
@@ -459,8 +486,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="py-12">
+      </DynamicMotion.section>
+      <DynamicMotion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1 }}
+        className="py-12"
+      >
         <div className="text-center mb-10">
           <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1 rounded-full">
             <span
@@ -828,8 +860,13 @@ export default function Home() {
             </span>
           </div>
         </div>
-      </section>
-      <section className="py-12">
+      </DynamicMotion.section>
+      <DynamicMotion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1 }}
+        className="py-12"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center mb-6">
             <h1 className="text-2xl font-bold text-black">TaniMaju</h1>
@@ -866,9 +903,14 @@ export default function Home() {
           </div>
         </div>
         <hr className="border-gray-200" />
-      </section>
+      </DynamicMotion.section>
       
-      <footer className="bg-gray-50">
+      <DynamicMotion.footer
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.2 }}
+        className="bg-gray-50"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
@@ -1019,7 +1061,7 @@ export default function Home() {
             <p>© 2025 TaniMaju. Semua Hak Dilindungi.</p>
           </div>
         </div>
-      </footer>
+      </DynamicMotion.footer>
     </div>
   );
 }
