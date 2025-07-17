@@ -829,6 +829,197 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex items-center mb-6">
+            <h1 className="text-2xl font-bold text-black">TaniMaju</h1>
+            <span className="bg-green-600 text-black text-xs font-bold px-2 py-1 rounded-md ml-2">
+              AI
+            </span>
+          </div>
+          <p className="text-gray-600 mb-4">
+            Platform AI terdepan untuk petani Indonesia. Meningkatkan
+            produktivitas pertanian dengan teknologi terkini dan solusi yang
+            mudah digunakan.
+          </p>
+          <p className="text-gray-600 mb-4">
+            Dikembangkan oleh{" "}
+            <a className="text-green-600 hover:underline" href="#">
+              TaniMaju
+            </a>
+          </p>
+          <p className="text-gray-600 mb-8">
+            Memberdayakan petani Indonesia sejak 2024
+          </p>
+          <h2 className="text-lg font-semibold text-black mb-3">
+            Dapatkan tips pertanian AI mingguan
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <input
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Email Anda"
+              type="email"
+            />
+            <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition duration-300">
+              Berlangganan
+            </button>
+          </div>
+        </div>
+        <hr className="border-gray-200" />
+      </section>
+      
+      <footer className="bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-semibold text-black mb-4">Produk</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Plant Doctor
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Harvest Prediction
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Fertilizer Optimizer
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Weather Analytics
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black mb-4">Dukungan</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Tutorial
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Panduan Pengguna
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Hubungi Kami
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Komunitas Petani
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black mb-4">Perusahaan</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Tentang Kami
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Karir
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Mitra
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Press Kit
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black mb-4">Ikuti Kami</h3>
+              <div className="flex space-x-4 text-gray-500 mb-6">
+                <a className="hover:text-green-600" href="#">
+                  <Image
+                    alt="Facebook icon"
+                    className="w-6 h-6"
+                    width={24}
+                    height={24}
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDefkjt3D-Dlk3O3zmeCL8JQxxP4F5IuKVmJaSra5OOtQNJy2ErHOCo0tCzfArZNiNDe9hvvdX-0pb4O1iY4qPckzORI9inYOMFyRUWlNUp1DXvGQEnLJvkoBbkRROSf8C_oNfCeHf7hu6_bVF9vk3Hd1XjAUXWUhkmDLqdY4GS_XLDiL3D4Daku_TCbErxZcQ-rulpmUx8asLbnp4Q0TiZKFRs49oqhtFGHDN3X6mexRdAv0ZREtO1iGf995juDEnXLZoK_hJ5X3WQ"
+                  />
+                </a>
+                <a className="hover:text-green-600" href="#">
+                  <Image
+                    alt="Instagram icon"
+                    className="w-6 h-6"
+                    width={24}
+                    height={24}
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCzcW0dgUv8zGY2G-nK9IJNsJpvIOyKv4mhP7v8yrZKHcASBHOrUr2ud6pdTJE4OS2uz6Ta_rO-4Rnl0vc-5eTEDMJOVTbM-PvZZh9Q48tKetOkHRuwcN3WwI-SKU97xHpJehcGY43TI1kNP7oOwEWa31UeT7ZgpjIIkvMgyRvNgHDf32zO7EOk9K8IwcOXHxtLMFKcb9PRnAjrUNR_tv6fxmmwbEaXQVwONFAIW23pdkfPbh0l07VhSaFNmKMo1q3VRofVkpM7rVm"
+                  />
+                </a>
+                <a className="hover:text-green-600" href="#">
+                  <Image
+                    alt="Twitter icon"
+                    className="w-6 h-6"
+                    width={24}
+                    height={24}
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJBm4j2V1fpSFxPKE-7OOw9d877zwGULpfEHP20yaMYHhx_DudZmsebi40c-v0Mj7dfr5u_BhjP-Vxn6cRyvK_KZzC9DJORzT_LSJfSPrtc5iuqbfa44jMa2piQK2VtUuuj5zu2YDeBMraF68BgwTxLhkTZUpin2zdJGFufIWq5YhTXq9NZIseso5Je3At7-6UTUglWr66iVRwtSdaUo3J2HN8oTWWXPDSYm84QFiNLQsEzjvxDwfUof3cjegZw8eNNL6ozBFtbxQY"
+                  />
+                </a>
+                <a className="hover:text-green-600" href="#">
+                  <Image
+                    alt="YouTube icon"
+                    className="w-6 h-6"
+                    width={24}
+                    height={24}
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq0HxLdmFWJnqCiAMQbz0witmOEBtiBlpAiae_PjpPvqS8JOOWxXIxElIcP0oK_9VNOVUDVb1cLPFM0WUDUdstWSJ87kznCS_y5-RkkCjDhcxwLelFHwUCqCBm9JXBaIVuVtUU6Rw4En-O5MdVhBEP7An9EWi1mKzrXcm9ugKG7n1aNeqxN5tVj5NKHc5HdaDfXOI65_8h0pl2Mb4WSK-LmR_44UHZz9rQ48gepjj9RupHLjG4x168nUMgRcoRqo9yg9hoHDBeHnqW"
+                  />
+                </a>
+              </div>
+              <ul className="space-y-2 text-gray-600">
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Kebijakan Privasi
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Syarat &amp; Ketentuan
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-green-600" href="#">
+                    Kebijakan Cookie
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+            <p>© 2025 TaniMaju. Semua Hak Dilindungi.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
