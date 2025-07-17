@@ -460,6 +460,375 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-12">
+        <div className="text-center mb-10">
+          <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1 rounded-full">
+            <span
+              className="material-symbols-outlined text-sm align-middle mr-1"
+              style={{ fontSize: "16px" }}
+            >
+              circle
+            </span>
+            Testimoni
+          </span>
+          <h1 className="text-3xl font-bold text-gray-800 mt-4">
+            TaniMaju telah membantu ribuan petani Indonesia meningkatkan
+            produktivitas dan hasil panen mereka.
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              Fitur monitoring cuaca sangat membantu. Saya jadi tahu kapan waktu
+              terbaik untuk tanam dan panen. Kerugian karena cuaca buruk
+              berkurang drastis.
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Bu Sri Wahyuni"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkRS-h98CsdFvdFG-BfWlH6fY-xfmNGfkH8yentCGqkYDq4Zam0nmBtZ7kvhMIkfjjWnPcQXR4LcNpKSZIQx9aKaQ-ZH-4jWtSMas4hdVd0zAwJBDI104xGLGkqQaIS-svP-G4vu7124hsPiy9qgIHsQ6z9SMKnOzyzhn1a5yfT4ILgxmb6hPnMkkbuyY2WwXQ0VcQkVqNqomp0SEW-0PABxn7VBQvIVgn__Ijy1UO8C0nFOWP663_qMmLOftdvyqiwRPSQ2HYiYTZ"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">Bu Sri Wahyuni</p>
+                <p className="text-sm text-gray-500">
+                  Petani Sayuran, Jawa Tengah
+                </p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              TaniMaju membantu saya kelola hama dengan lebih efektif.
+              Penggunaan pestisida berkurang 30% tapi hasil tetap maksimal.
+              Biaya operasional lebih hemat.
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Pak Ahmad Hidayat"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPzWS6ojkfYf3-CQiVt6fdpTgXb6likaaM3g1JDpQYvgHyQXD_aBZNAdE9QOYWd1-EtYlWSBW_CMy9F7ozK6kcGG8oZ3TQ3B3Jv4rRQTHRzWGnDj3L2rNX6iEkAQlSt3lIAQXhmC-9t95CTqyG0aJyrtlj4q7Wa1QxtVICxWbh7J7mhMX5m2Y0zczH3M3rQl27HwAMysqYAZXr5M1uvj0mwOeYi-8RkkjSClqX2UaB8whiSPaE9OpY97H7VOdILX3KZI6k-Xvtr8mh"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">Pak Ahmad Hidayat</p>
+                <p className="text-sm text-gray-500">
+                  Petani Jagung, Jawa Timur
+                </p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              Sebelum pakai TaniMaju, saya sering bingung kapan waktu yang
+              tepat untuk panen. Sekarang dengan sistem rekomendasi, hasil
+              panen lebih berkualitas.
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Bu Siti Nurhaliza"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwdZqkIgCxQdzDGjNMXrVzkMjQIOMEjUC22_UF5Tq11vSXB_peM5jsPYYvMVpYG5fkhVG2XbbZ9hwcJxIKL4OxNkyiDgre5xRJigOBfuzksvUNdqLGL-cvPmcWq0tmVV1PyuqyVRQOCUhT3ONReV6KHHyGO7sEwXXu4jSmkGzccVt-498qsbhjniLB3LAXjeKrn4jzLAOGGC9Ha_19MiCeKw8gktVM3cy3QMXdAzv1-_U2Iwd9iVxTd4huE5ooKf7Qaa1HmKPXb6IP"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">Bu Siti Nurhaliza</p>
+                <p className="text-sm text-gray-500">
+                  Petani Cabai, Sumatera Utara
+                </p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              Aplikasi ini sangat mudah digunakan. Bahkan petani seperti saya
+              yang gaptek bisa pakai dengan lancar. Produktivitas naik hampir
+              40%!
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Pak Joko Widodo"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDXigm-cgXIs21pX3MAi9V6fQFW-5dBkaSVdf8NQgjY5BZRlxBfDF2ch8nlCjjdNbEv9C0wx0zt2IrzW_F4RmaHZ_qHO88YgRz-gQFJi95ZQlxk9t1MtEmTA2TFnC9S5y0LdJB6k4SivnTBBM2tnVnUlYor2m-B_PZbygwvw2p4n-OrvnPEqM4-C2ehPaxMtF6FHU04SX5CyK85zbgU_xIl8kbJfHTnRhbrxpCymqKxrcKFvsBWtoScCi7wzTQwF-Ya51immCUrUnk"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">Pak Joko Widodo</p>
+                <p className="text-sm text-gray-500">Petani Tomat, Bali</p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              Fitur analisis tanah membantu saya memilih pupuk yang tepat.
+              Tanaman lebih sehat, biaya pupuk jadi lebih efisien. Untung
+              bersih meningkat signifikan.
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Bu Ratna Sari"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi0Fpkdl4oKpqefxvERU8Oo-cc795WxTAx20tXZTGLJEfru4N5ZL0UZ7mkRq1ZXiy7UHFW7xOfXRw19R3VdM-bdEIoJSd3rqXfiskPZkWwDkv2eksRLKYkHHzWl3WsqhxNAywQ8kN1lOiAnuJUHJEQMuOpy92xM4D6La60sFNYEKw5gFaxB4cj-LNaqXycfzSGLpdQEFHPVVqgLIy287mEMskbseQdLL_FdcJap7EReR6qPjSXGjGYvx0LdLIqZGH7KblkHLyjXEy1"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">Bu Ratna Sari</p>
+                <p className="text-sm text-gray-500">
+                  Petani Kentang, Jawa Barat
+                </p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 relative">
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 left-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+            <p className="text-gray-600 mt-8 mb-6">
+              Dengan monitoring real-time, saya bisa deteksi masalah di sawah
+              lebih awal. Tidak perlu sering bolak-balik ke sawah, hemat
+              waktu dan tenaga.
+            </p>
+            <div className="flex items-center">
+              <Image
+                alt="Pak Bambang Sutrisno"
+                className="w-12 h-12 rounded-full mr-4"
+                width={48}
+                height={48}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeZrSQv8HQ_yFMmb3iLaTt13SqQLkB2cx1OJzY4lBeXqC2JgW6PTPP4AsALvXgtxbprvN0X5i7Hi00vBwXOh4Lh62JR7JOF0N11slcqE5aOk93OB_yY6hRmXuaBh9gcenbn1roLcc_ReG4GhJgLf2TnldssP7QhTHiNouBG7c_3sRf8ba1A9DSN9vj0Y1WKZ1v_bPPLDM7okqCJJkyhyyTNtLENyQlyII3F7IyIOaEx55NiFsVDej62kiZe576bl8C3RIEEiv8y1PM"
+              />
+              <div>
+                <p className="font-semibold text-gray-800">
+                  Pak Bambang Sutrisno
+                </p>
+                <p className="text-sm text-gray-500">Petani Padi, Lampung</p>
+                <div className="flex items-center text-green-500 text-xs mt-1">
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "14px" }}
+                  >
+                    verified
+                  </span>
+                  <span className="ml-1">Verified</span>
+                </div>
+              </div>
+            </div>
+            <span
+              className="material-symbols-outlined text-gray-300 absolute top-4 right-4"
+              style={{ fontSize: "36px" }}
+            >
+              format_quote
+            </span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
+          <div className="bg-white rounded-lg shadow-md p-6 flex items-start">
+            <Image
+              alt="Bu Indra Kusuma"
+              className="w-12 h-12 rounded-full mr-4"
+              width={48}
+              height={48}
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhGe8ICgmyU-bj0tuL3VlPMfAAT5vQTxlCxwEHVNg2He46qIQlrHMIvE5I-NRH6_zh9VfuJLsbM32hgqhY6NorbgYnnWr9gf7bzWV3HPsA1HT3WuDN66-i0NqAKA3-yPfaSJQoLnXX9DzdnzFlHLANJhtLN3aaCtWTZmceNUqGHdlyihmGWSRkAGz3vCys91jF3gRAbrT0W1_3-rBUcw_gNKhezsWzNqOgg1jY3ApUnpSMkeN4jl_tt4fwv_V0nNkjQ47fnplDbl4P"
+            />
+            <div className="flex-1">
+              <p className="text-gray-600 mb-4">
+                "Sistem peringatan dini untuk penyakit tanaman sangat akurat.
+                Saya bisa ambil tindakan pencegahan sebelum penyakit menyebar
+                luas."
+              </p>
+              <p className="font-semibold text-gray-800">Bu Indra Kusuma</p>
+              <p className="text-sm text-gray-500">
+                Petani Kedelai, Yogyakarta
+              </p>
+            </div>
+            <span className="material-symbols-outlined text-gray-400">
+              more_horiz
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 flex items-start">
+            <Image
+              alt="Pak Agus Salim"
+              className="w-12 h-12 rounded-full mr-4"
+              width={48}
+              height={48}
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvdl63HvqztZXFUP8rif-YNsMlbjfhHul0dAkEaPE1kjj3LawtwWcuejFbuTfBVN0NfQ6_c7OvPW08PUXlssM547HbjJ6eqPdaKogRz41cG0RG3v731jSCIJxlmyGyBgHhss9M4m0e-RVe3jyQQ4vyXZVqQXv4TGwKflXv6RZGAiZwwZGMSErvC2OGpwzNBFSXRZMy75pYYuX8uB4pBPyYZSSxa2C6nHxOielJ2U0t1HPGtboVI-IzV8JRslK2_npILVenqcWDRIi"
+            />
+            <div className="flex-1">
+              <p className="text-gray-600 mb-4">
+                "TaniMaju membantu saya merencanakan jadwal tanam yang
+                optimal. Dengan rotasi tanaman yang tepat, tanah tetap subur dan
+                produksi stabil sepanjang tahun."
+              </p>
+              <p className="font-semibold text-gray-800">Pak Agus Salim</p>
+              <p className="text-sm text-gray-500">
+                Petani Palawija, Sulawesi Selatan
+              </p>
+            </div>
+            <span className="material-symbols-outlined text-gray-400">
+              more_horiz
+            </span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
+          <div className="bg-white rounded-lg shadow-md p-6 flex items-start">
+            <Image
+              alt="Bu Dewi Lestari"
+              className="w-12 h-12 rounded-full mr-4"
+              width={48}
+              height={48}
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCziDvEZdUcLDMiFMxFwFs5vg32-lb3aPWvTQyxmUWJSNQ2CDmP9GpmxywPCw2LoJjicC_I0j1iYFSGKmzFmJYn4M0-T8lR6PF7tEZ_IQLj3JiDqi1-aJjy1v3UnibAOf3fH6nzx6iROLiqiQ6RUmb5un7w6IqAYQwj9tA7wc_2AfQgY8wHvoe89Qs-T3Pl_newT1yCq0emGU2cCYbWRYcdBgsm_1OpV_KeWG_n5jKlieVrVs7k4EXNhI6r8BXmwJ4lXYMrwQFvAliP"
+            />
+            <div className="flex-1">
+              <p className="text-gray-600 mb-4">
+                "Sejak menggunakan TaniMaju, kualitas buah-buahan saya jauh
+                lebih baik. Pembeli di pasar selalu mencari produk saya karena
+                kualitasnya konsisten."
+              </p>
+              <p className="font-semibold text-gray-800">Bu Dewi Lestari</p>
+              <p className="text-sm text-gray-500">Petani Buah, Malang</p>
+            </div>
+            <span className="material-symbols-outlined text-gray-400">
+              more_horiz
+            </span>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 flex items-start">
+            <Image
+              alt="Pak Hario Susilo"
+              className="w-12 h-12 rounded-full mr-4"
+              width={48}
+              height={48}
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZcRjbrc6J68Adj6ZjtaIIV0JYChlZUike_6tF7MTN550P7IssiWBLS1E7YoveYUpy2LBdSXubNngYJaX-fQOduCs6RsCrgsqzFR-u8hU0vXxXhaK5V4ktbkMSrxciAYTFT2zDQaZKbwFjUIoVEe1Fpb1y5N-w7XY75nlZGmBTjx2P7UDP6Bz20FE3_xPY2qiP6x_uulcf8gg1JLmZIxbkoHw3DHnG6xjOFUq4zEoTh-FVOfHkrkP7h4IVoZ_8bv-JJWsiNdWmaJ_"
+            />
+            <div className="flex-1">
+              <p className="text-gray-600 mb-4">
+                "Panduan budidaya yang diberikan sangat detail dan mudah
+                diikuti. Bahkan untuk tanaman baru yang belum pernah saya tanam
+                sebelumnya."
+              </p>
+              <p className="font-semibold text-gray-800">Pak Hario Susilo</p>
+              <p className="text-sm text-gray-500">
+                Petani Hortikultura, Bandung
+              </p>
+            </div>
+            <span className="material-symbols-outlined text-gray-400">
+              more_horiz
+            </span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
