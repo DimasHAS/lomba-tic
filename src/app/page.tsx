@@ -360,6 +360,106 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+            Jelajahi Lebih Lanjut
+          </h2>
+          <p className="text-gray-600">
+            Temukan bagaimana TaniMaju menghadirkan solusi inovatif untuk
+            setiap aspek pertanian modern
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="relative">
+              <Image
+                alt="Smart Irrigation System thumbnail"
+                className="w-full h-48 object-cover"
+                width={500}
+                height={300}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkOYugb-5Uswy2KDdbNgXa47D4xKN553mFQTvRZ0kKVUFFAyFQ6rhtu831pt01vVsppfkRHP5xjgwJ-zt08jUF77DP8gp-y-VsU4xmjIZTBCYeNKYjXsTUUsdwTJgcYbntGXWoudieP_rybQeTPVml1b1oF4h7kdE1t5TXaKj8VkLzPiwXZ0DYVitWdiQ9Sqk8C9FdX5YF8Sh25IV6_c29GI7KpAmUJCQXhkiCYrXSHJ6UT1MmhErf29s6IWin2prYY-6ftWBVfMc"
+              />
+              <div className="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                Baru
+              </div>
+              <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                3:45
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center text-sm text-gray-500 mb-2">
+                <span>Teknologi</span>
+                <span className="mx-2">•</span>
+                <span>12.5k</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Smart Irrigation System
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Lihat bagaimana teknologi irigasi pintar TaniMaju menghemat air
+                hingga 40% sambil meningkatkan hasil panen.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="relative">
+              <Image
+                alt="Success Story: Pak Budi thumbnail"
+                className="w-full h-48 object-cover"
+                width={500}
+                height={300}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ7jMTHQ-QXXcyLk0fXZRkDq4iKCfp6iMccaHTkAJhPa5JTnj6Bsa5dm0vz7igYcc0YRBysiWQNDWOn8gLV4BEK2TS2aGX-MhMCeKIoYFwrxFxFGfYh0xqqBd6Q7RKJXzptX1suHiktEfQ0rTrrYm9SY4_lsZpACTbJEy2STk7RTPhDhLAjf1b2yOOgiOR6OSovhowzMIiN1hqDU2E6CCH_fZE8UOzRzZaOsgFErouHXPNWlDvVJtrRiJBqEsfBQ-m-cM4tomDuKE"
+              />
+              <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                5:20
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center text-sm text-gray-500 mb-2">
+                <span>Success Story</span>
+                <span className="mx-2">•</span>
+                <span>8.3k</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Success Story: Pak Budi
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Petani jagung dari Jawa Tengah meningkatkan produktivitas 65%
+                dengan platform TaniMaju.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="relative">
+              <Image
+                alt="Market Analytics Dashboard thumbnail"
+                className="w-full h-48 object-cover"
+                width={500}
+                height={300}
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa9IJrpDbV-Bl6-FqQ0hrkzb5nHIqrmPHv5DKiwCfH_ysEa-lK1c2U7lgnRsnzBqX_3KZlerbtznDg8VAM41SDyIMiLKzo7255FMwq91RL6SHvOvJAlNTZ0_f_VUEWK6kOBIP3FR9ovx9qzackwb-6RRUIPgwAuqLjOlSJ7lf1OSlG9XXrloAIsSgIbJsZUkIpLYwbVPPcruwW_gUGWuLIesRc28tykFkuKcedJDJcqM1GeaFftjJrrjOXVUzifpFD--qobub_YMg"
+              />
+              <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                4:15
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center text-sm text-gray-500 mb-2">
+                <span>Platform</span>
+                <span className="mx-2">•</span>
+                <span>15.2k</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Market Analytics Dashboard
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Analisis pasar real-time membantu petani mendapat harga terbaik
+                untuk hasil panen mereka.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
