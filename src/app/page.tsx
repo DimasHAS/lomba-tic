@@ -176,6 +176,140 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <section className="py-16 mt-16">
+        <div className="text-left mb-12">
+          <p className="text-lg text-gray-600">Teknologi Pertanian Cerdas</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+            Fitur TaniMaju untuk
+            <br />
+            Optimalisasi Pertanian
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">photo_camera</span>
+              </div>
+              <div className="w-10 h-3 bg-green-200 rounded-full"></div>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Plant Doctor AI
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Identifikasi penyakit tanaman secara instan menggunakan AI. Cukup
+              foto daun atau bagian tanaman yang bermasalah untuk mendapat
+              diagnosis akurat dan rekomendasi penanganan.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              Real-time analysis
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">trending_up</span>
+              </div>
+              <span className="material-icons text-green-600 text-3xl">
+                signal_cellular_alt
+              </span>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Prediksi Panen Cerdas
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Prediksi hasil panen berdasarkan data cuaca, kondisi tanah, dan
+              pola pertumbuhan. Rencanakan strategi pemasaran dengan proyeksi
+              yield yang akurat.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              ML-powered predictions
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">eco</span>
+              </div>
+              <div className="w-10 h-3 bg-gradient-to-r from-yellow-200 to-green-200 rounded-full"></div>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Optimasi Pupuk Satelit
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Analisis citra satelit untuk menentukan kebutuhan pupuk spesifik
+              setiap area lahan secara presisi.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+              Satellite imagery
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">bug_report</span>
+              </div>
+              <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Deteksi Hama Dini
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Sistem peringatan dini untuk deteksi hama dan penyakit tanaman
+              dengan sensor IoT dan AI imaging.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+              IoT sensors
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">donut_small</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <div className="w-8 h-1 bg-gray-400 rounded-full"></div>
+                <div className="w-4 h-1 bg-gray-400 rounded-full"></div>
+                <div className="w-2 h-1 bg-gray-400 rounded-full"></div>
+              </div>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Wawasan AI Holistik
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Integrasi semua data pertanian dalam satu dashboard untuk
+              pengambilan keputusan yang lebih cerdas.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-cyan-500 rounded-full mr-2"></span>
+              AI-driven insights
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-green-100 p-2 rounded-lg">
+                <span className="material-icons text-green-600">bar_chart</span>
+              </div>
+              <span className="material-icons text-gray-500">drag_handle</span>
+            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Smart Analytics
+            </h2>
+            <p className="text-gray-600 mb-4 text-sm">
+              Dapatkan laporan komprehensif dan insights actionable dari
+              seluruh aktivitas pertanian Anda.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <span className="w-2 h-2 bg-blue-800 rounded-full mr-2"></span>
+              Advanced analytics
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
