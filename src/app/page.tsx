@@ -60,7 +60,7 @@ export default function Home() {
           <div className="flex items-center">
             <a
               className="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300"
-              href="#"
+              href="/login"
             >
               Mulai Gratis Sekarang
             </a>
