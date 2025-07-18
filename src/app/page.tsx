@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-8 py-12">
+    <div className="container mx-auto px-8 py-6">
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
