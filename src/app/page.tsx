@@ -1,11 +1,14 @@
 'use client';
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+
 
 export default function Home() {
   return (
     <div className="container mx-auto px-8 py-12">
-      <DynamicMotion.header
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -17,8 +20,8 @@ export default function Home() {
           </div>
           <span className="text-2xl font-bold text-gray-800">TaniMaju</span>
         </div>
-      </DynamicMotion.header>
-      <DynamicMotion.main
+      </motion.header>
+      <motion.main
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
@@ -81,7 +84,9 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="bg-white rounded-2xl shadow-xl p-6">
+        <div className="relative">
+          <div className="absolute -top-4 -left-4 w-full h-full bg-gray-200 rounded-2xl"></div>
+          <div className="relative bg-white rounded-2xl shadow-xl p-6">
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center">
               <div className="bg-green-600 text-white font-bold text-lg w-8 h-8 flex items-center justify-center rounded-md mr-3">
@@ -187,8 +192,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </DynamicMotion.main>
-      <DynamicMotion.section
+        </div>
+      </motion.main>
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.4 }}
@@ -326,8 +332,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </DynamicMotion.section>
-      <DynamicMotion.section
+      </motion.section>
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.6 }}
@@ -381,8 +387,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </DynamicMotion.section>
-      <DynamicMotion.section
+      </motion.section>
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.8 }}
@@ -486,8 +492,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </DynamicMotion.section>
-      <DynamicMotion.section
+      </motion.section>
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 1 }}
@@ -860,8 +866,8 @@ export default function Home() {
             </span>
           </div>
         </div>
-      </DynamicMotion.section>
-      <DynamicMotion.section
+      </motion.section>
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 1 }}
@@ -903,9 +909,9 @@ export default function Home() {
           </div>
         </div>
         <hr className="border-gray-200" />
-      </DynamicMotion.section>
+      </motion.section>
       
-      <DynamicMotion.footer
+      <motion.footer
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 1.2 }}
@@ -1061,7 +1067,7 @@ export default function Home() {
             <p>© 2025 TaniMaju. Semua Hak Dilindungi.</p>
           </div>
         </div>
-      </DynamicMotion.footer>
+      </motion.footer>
     </div>
   );
 }
