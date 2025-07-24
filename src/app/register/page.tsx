@@ -1,10 +1,37 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import supabase from '../../config/supabaseClient';
 
 const RegisterPage = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    data: {
+                        full_name: name,
+                        username: username,
+                    }
+                }
+            });
+            if (error) throw error;
+            alert('Registration successful! Please check your email to verify your account.');
+            // Redirect user or update UI
+        } catch (error: any) {
+            alert(error.message);
+        }
+    };
+
     return (
         <div className="bg-gray-50">
             <div className="flex h-screen">
@@ -32,22 +59,22 @@ const RegisterPage = () => {
                 <div className="w-1/2 flex items-center justify-center bg-gray-50 p-16">
                     <div className="w-full max-w-md bg-white p-12 rounded-xl shadow-lg">
                         <h2 className="text-2xl font-bold text-center text-gray-800">Daftar ke TaniMaju</h2>
-                        <form className="mt-8 space-y-6">
+                        <form className="mt-8 space-y-6" onSubmit={handleRegister}>
                             <div>
                                 <label className="text-sm font-medium text-gray-700" htmlFor="name">Nama</label>
-                                <input className="mt-1 block w-full px-4 py-3 border border-green-500 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500" id="name" name="name" placeholder="Masukkan nama lengkap" type="text" />
+                                <input className="mt-1 block w-full px-4 py-3 border border-green-500 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="name" name="name" placeholder="Masukkan nama lengkap" type="text" value={name} onChange={(e) => setName(e.target.value)} />
                             </div>
                             <div>
                                 <label className="text-sm font-medium text-gray-700" htmlFor="email">Email</label>
-                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500" id="email" name="email" placeholder="Masukkan alamat email" type="email" />
+                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="email" name="email" placeholder="Masukkan alamat email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div>
                                 <label className="text-sm font-medium text-gray-700" htmlFor="username">Username</label>
-                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500" id="username" name="username" placeholder="Pilih username unik" type="text" />
+                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="username" name="username" placeholder="Pilih username unik" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
                             </div>
                             <div className="relative">
                                 <label className="text-sm font-medium text-gray-700" htmlFor="password">Password</label>
-                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500" id="password" name="password" placeholder="Buat password yang kuat" type="password" />
+                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="password" name="password" placeholder="Buat password yang kuat" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <span className="material-icons absolute inset-y-0 right-0 top-7 flex items-center pr-3 text-gray-400 cursor-pointer">visibility</span>
                             </div>
                             <button className="w-full bg-green-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 transition" type="submit">Daftar</button>

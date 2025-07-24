@@ -1,17 +1,36 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import supabase from '../../config/supabaseClient';
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+            if (error) throw error;
+            alert('Login successful!');
+            // Redirect user or update UI
+        } catch (error: any) {
+            alert(error.message);
+        }
+    };
+
     return (
         <div className="bg-gray-50">
             <div className="flex min-h-screen">
                 <div className="w-1/2 bg-gradient-to-br from-green-100 to-green-200 p-12 flex flex-col justify-between">
                     <div>
                         <div className="flex items-center gap-3">
-                            <div className="bg-green-500 text-white font-bold text-xl w-10 h-10 flex items-center justify-center rounded-md">T</div>
+                             <div className="bg-green-500 text-white font-bold text-xl w-10 h-10 flex items-center justify-center rounded-md">T</div>
                             <span className="text-xl font-bold text-gray-800">TaniMaju</span>
                         </div>
                         <h1 className="text-5xl font-bold text-gray-800 mt-24 leading-tight">Teknologi AI untuk Petani Indonesia yang Lebih Maju</h1>
@@ -28,15 +47,15 @@ const LoginPage = () => {
                 <div className="w-1/2 flex items-center justify-center bg-white">
                     <div className="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md">
                         <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Masuk ke TaniMaju</h2>
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="email">Email atau Username</label>
-                                <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" id="email" placeholder="Email atau Username" type="text" />
+                                <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-black" id="email" placeholder="Email atau Username" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="password">Password</label>
                                 <div className="relative">
-                                    <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" id="password" placeholder="Password" type="password" />
+                                    <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-black" id="password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                     <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer">
                                         <i className="material-icons">visibility</i>
                                     </span>
