@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from "next/link";
@@ -29,49 +28,49 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     <span className="text-xl font-bold">AgriDash</span>
                 </div>
                 <nav className="mt-6">
-                    <h3 className="px-6 mb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">Navigation</h3>
+                    <h3 className="px-6 mb-2 text-xs font-semibold tracking-wider text-gray-600 uppercase">Navigation</h3>
                     <ul>
                         <li>
-                            <Link href="/dashboard" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard' ? 'bg-gray-100 font-semibold' : ''}`}>
+                            <Link href="/dashboard" className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 ${pathname === '/dashboard' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">dashboard</span>
                                 Dashboard
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/dokter-tani" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/dokter-tani' ? 'bg-gray-100 font-semibold' : ''}`}>
+                            <Link href="/dashboard/dokter-tani" className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 ${pathname === '/dashboard/dokter-tani' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">medical_services</span>
                                 Dokter Tani
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/weather-prediction" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/weather-prediction' ? 'bg-gray-100 font-semibold' : ''}`}>
+                            <Link href="/dashboard/weather-prediction" className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 ${pathname === '/dashboard/weather-prediction' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">cloud</span>
                                 Weather Prediction
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/calculator" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/calculator' ? 'bg-gray-100 font-semibold' : ''}`}>
+                            <Link href="/dashboard/calculator" className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 ${pathname === '/dashboard/calculator' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">calculate</span>
                                 Calculator
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/komunitani" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/komunitani' ? 'bg-gray-100 font-semibold' : ''}`}>
+                            <Link href="/dashboard/komunitani" className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 ${pathname === '/dashboard/komunitani' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">groups</span>
                                 Komunitani
                             </Link>
                         </li>
                     </ul>
-                    <h3 className="px-6 mt-6 mb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">Tools</h3>
+                    <h3 className="px-6 mt-6 mb-2 text-xs font-semibold tracking-wider text-gray-600 uppercase">Tools</h3>
                     <ul>
                         <li>
-                            <a className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+                            <a className="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100" href="#">
                                 <span className="material-icons mr-3">analytics</span>
                                 Analytics
                             </a>
                         </li>
                         <li>
-                            <a className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+                            <a className="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100" href="#">
                                 <span className="material-icons mr-3">settings</span>
                                 Settings
                             </a>
@@ -84,7 +83,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     <div></div>
                     <div className="flex items-center">
                         <button className="p-2 rounded-full hover:bg-gray-100">
-                            <span className="material-icons text-gray-600">notifications_none</span>
+                            <span className="material-icons text-gray-700">notifications_none</span>
                         </button>
                         <div className="ml-4 flex items-center">
                             <div className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-800">PB</div>

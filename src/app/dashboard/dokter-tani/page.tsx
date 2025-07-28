@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ const DokterTaniPage = () => {
                     </div>
                     <div className="ml-4">
                         <h2 className="text-lg font-semibold text-gray-800">Dokter Tani AI</h2>
-                        <p className="text-sm text-gray-500">Chatbot Diagnosa Penyakit Tanaman</p>
+                        <p className="text-sm text-gray-600">Chatbot Diagnosa Penyakit Tanaman</p>
                     </div>
                 </div>
                 <div className="flex-1 p-6 overflow-y-auto">
@@ -25,15 +24,15 @@ const DokterTaniPage = () => {
                             <span className="material-icons text-green-500 text-lg">psychology</span>
                         </div>
                         <div className="bg-gray-100 rounded-lg p-3 max-w-lg">
-                            <p className="text-sm text-gray-700">Halo! Saya adalah Dokter Tani AI, asisten digital untuk diagnosa penyakit tanaman. Silakan upload foto tanaman Anda atau tanyakan masalah pertanian yang Anda alami.</p>
-                            <p className="text-right text-xs text-gray-400 mt-2">18.41</p>
+                            <p className="text-sm text-gray-800">Halo! Saya adalah Dokter Tani AI, asisten digital untuk diagnosa penyakit tanaman. Silakan upload foto tanaman Anda atau tanyakan masalah pertanian yang Anda alami.</p>
+                            <p className="text-right text-xs text-gray-500 mt-2">18.41</p>
                         </div>
                     </div>
                 </div>
                 <div className="p-4 border-t">
                     <div className="relative">
                         <input className="w-full pl-10 pr-12 py-3 border rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Ketik pesan atau upload foto tanaman..." type="text" />
-                        <span className="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">attach_file</span>
+                        <span className="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">attach_file</span>
                         <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-500 text-white p-2 rounded-full hover:bg-green-600">
                             <span className="material-icons">send</span>
                         </button>
