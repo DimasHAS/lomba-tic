@@ -5,9 +5,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import supabase from '../../config/supabaseClient';
 
+import { useRouter } from 'next/navigation';
+
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -17,8 +20,7 @@ const LoginPage = () => {
                 password: password,
             });
             if (error) throw error;
-            alert('Login successful!');
-            // Redirect user or update UI
+            router.push('/dashboard');
         } catch (error: any) {
             alert(error.message);
         }

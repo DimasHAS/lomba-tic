@@ -1,7 +1,23 @@
 
+'use client';
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import supabase from "../../config/supabaseClient";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+    const [userEmail, setUserEmail] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data, error } = await supabase.auth.getUser();
+            if (data?.user) {
+                setUserEmail(data.user.email || null);
+            }
+        };
+
+        fetchUser();
+    }, []);
     return (
         <div className="flex h-screen">
             <aside className="w-64 bg-white border-r">
@@ -70,8 +86,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                         <div className="ml-4 flex items-center">
                             <div className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-800">PB</div>
                             <div className="ml-2">
-                                <p className="font-semibold text-sm">Pak Budi</p>
-                                <p className="text-xs text-gray-500">Farmer</p>
+                                <p className="font-semibold text-sm">{userEmail}</p>
+                                
                             </div>
                         </div>
                     </div>
