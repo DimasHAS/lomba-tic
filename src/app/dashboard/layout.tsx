@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import supabase from "../../config/supabaseClient";
 
+import { usePathname } from 'next/navigation';
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+    const pathname = usePathname();
     const [userEmail, setUserEmail] = useState<string | null>(null);
 
     useEffect(() => {
@@ -29,31 +32,31 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     <h3 className="px-6 mb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">Navigation</h3>
                     <ul>
                         <li>
-                            <Link href="/dashboard" className="flex items-center px-6 py-3 text-gray-700 bg-gray-100 font-semibold">
+                            <Link href="/dashboard" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">dashboard</span>
                                 Dashboard
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/dokter-tani" className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100">
+                            <Link href="/dashboard/dokter-tani" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/dokter-tani' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">medical_services</span>
                                 Dokter Tani
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/weather-prediction" className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100">
+                            <Link href="/dashboard/weather-prediction" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/weather-prediction' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">cloud</span>
                                 Weather Prediction
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/calculator" className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100">
+                            <Link href="/dashboard/calculator" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/calculator' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">calculate</span>
                                 Calculator
                             </Link>
                         </li>
                         <li>
-                            <Link href="/dashboard/komunitani" className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100">
+                            <Link href="/dashboard/komunitani" className={`flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 ${pathname === '/dashboard/komunitani' ? 'bg-gray-100 font-semibold' : ''}`}>
                                 <span className="material-icons mr-3">groups</span>
                                 Komunitani
                             </Link>
