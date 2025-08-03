@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  devIndicators: {
+    allowedDevOrigins: ["http://192.168.93.1:3000"], // Ganti port jika perlu
+  },
 };
 
 export default nextConfig;
