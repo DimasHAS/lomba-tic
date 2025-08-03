@@ -16,30 +16,21 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { message } = await req.json();
+    const { message, image, imageMimeType } = await req.json();
 
-    if (!message) {
-      return NextResponse.json({ error: 'Message is required' }, { status: 400 });
+    if (!message && !image) {
+      return NextResponse.json({ error: 'Message or image is required' }, { status: 400 });
     }
 
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: 'You are an AI assistant called Dokter Tani. You specialize in agriculture, providing advice on planting, pest control, and crop diseases. Your tone should be helpful and professional.' }],
-        },
-        {
-          role: 'model',
-          parts: [{ text: 'Tentu, saya Dokter Tani. Ada yang bisa saya bantu seputar pertanian?' }],
-        },
-      ],
-      generationConfig: {
-        maxOutputTokens: 200,
-      },
-    });
 
-    const result = await chat.sendMessage(message);
+    const promptParts: (string | { inlineData: { data: string; mimeType: string; } })[] = [message];
+
+    if (image && imageMimeType) {
+        promptParts.push({ inlineData: { data: image, mimeType: imageMimeType } });
+    }
+
+    const result = await model.generateContent(promptParts);
     const response = await result.response;
     const text = response.text();
 
