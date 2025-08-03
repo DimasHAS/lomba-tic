@@ -31,7 +31,7 @@ const DokterTaniPage = () => {
                 </div>
                 <div className="p-4 border-t">
                     <div className="relative">
-                        <input className="w-full pl-10 pr-12 py-3 border rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Ketik pesan atau upload foto tanaman..." type="text" />
+                        <input className="w-full pl-10 pr-12 py-3 border rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 text-black" placeholder="Ketik pesan atau upload foto tanaman..." type="text" />
                         <span className="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">attach_file</span>
                         <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-500 text-white p-2 rounded-full hover:bg-green-600">
                             <span className="material-icons">send</span>
