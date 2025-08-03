@@ -9,7 +9,22 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "openweathermap.org",
+        port: "",
+        pathname: "/img/wn/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.weatherapi.com",
+        port: "",
+        pathname: "/weather/**",
+      },
     ],
+  },
+  devIndicators: {
+    allowedDevOrigins: ["http://192.168.93.1:3000"], // Ganti port jika perlu
   },
 };
 
