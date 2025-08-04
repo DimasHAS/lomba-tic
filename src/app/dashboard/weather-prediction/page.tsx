@@ -73,72 +73,73 @@ const WeatherPredictionPage = () => {
     };
 
     return (
-        <div className="flex h-full bg-gray-100">
+        <div className="flex h-full bg-gray-50">
             {/* Left Panel: Weather Details */}
-            <div className="w-full md:w-1/3 h-full overflow-y-auto p-6 bg-white shadow-lg">
-                <div className="flex items-start mb-6">
-                    <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                        <span className="material-icons text-blue-600" style={{ fontSize: '28px' }}>travel_explore</span>
+            <div className="w-full md:w-1/3 h-full overflow-y-auto p-8 bg-white shadow-lg">
+                <div className="flex items-center mb-8">
+                    <div className="bg-blue-500 p-4 rounded-full mr-4">
+                        <span className="material-icons text-white" style={{ fontSize: '32px' }}>travel_explore</span>
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold text-gray-800">Prakiraan Cuaca</h1>
+                        <h1 className="text-2xl font-bold text-gray-800">Prakiraan Cuaca</h1>
                         <p className="text-gray-600">Cari lokasi untuk melihat cuaca dan peta.</p>
                     </div>
                 </div>
 
-                <form onSubmit={handleSearch} className="flex items-center mb-6">
+                <form onSubmit={handleSearch} className="flex items-center mb-8">
                     <input 
                         type="text" 
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                         placeholder="Masukkan nama kota..."
-                        className="w-full border border-gray-300 rounded-l-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-gray-900"
+                        className="w-full border border-gray-300 rounded-l-full p-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-gray-900 text-lg"
                     />
                     <button 
                         type="submit"
-                        className="bg-blue-500 text-white p-3 rounded-r-lg hover:bg-blue-600 disabled:bg-blue-300 flex items-center justify-center h-full"
-                        style={{height: '50px'}}
+                        className="bg-blue-500 text-white p-4 rounded-r-full hover:bg-blue-600 disabled:bg-blue-300 flex items-center justify-center h-full transition-colors duration-300"
+                        style={{height: '60px'}}
                         disabled={isLoading}
                     >
-                        {isLoading ? <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></span> : <span className="material-icons">search</span>}
+                        {isLoading ? <span className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></span> : <span className="material-icons">search</span>}
                     </button>
                 </form>
 
-                {error && <p className="text-red-500 text-center p-4 bg-red-50 rounded-lg">Error: {error}</p>}
+                {error && <p className="text-red-600 text-center p-4 bg-red-100 rounded-lg shadow-md">Error: {error}</p>}
 
                 {weatherData ? (
-                    <div className="space-y-6">
-                        <div>
-                            <h2 className="text-2xl font-bold text-gray-900">{weatherData.location.name}</h2>
-                            <p className="text-gray-600">{weatherData.location.region}, {weatherData.location.country}</p>
+                    <div className="space-y-8 animate-fade-in">
+                        <div className="text-center">
+                            <h2 className="text-4xl font-bold text-gray-900">{weatherData.location.name}</h2>
+                            <p className="text-lg text-gray-600">{weatherData.location.region}, {weatherData.location.country}</p>
                         </div>
                         
-                        <div className="bg-gray-50 rounded-lg p-4 text-center">
-                            <WeatherIcon icon={weatherData.current.weather.icon} size={80} />
-                            <p className="text-5xl font-bold text-gray-900">{Math.round(weatherData.current.temp)}°C</p>
-                            <p className="text-gray-600 capitalize">{weatherData.current.weather.description}</p>
-                            <div className="flex justify-around mt-4 text-sm">
+                        <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl shadow-lg p-6 text-white text-center transform hover:scale-105 transition-transform duration-300">
+                            <WeatherIcon icon={weatherData.current.weather.icon} size={100} />
+                            <p className="text-7xl font-bold">{Math.round(weatherData.current.temp)}°C</p>
+                            <p className="text-xl capitalize">{weatherData.current.weather.description}</p>
+                            <div className="flex justify-around mt-6 text-md">
                                 <p><strong>Kelembapan:</strong> {weatherData.current.humidity}%</p>
                                 <p><strong>Angin:</strong> {weatherData.current.wind_speed} m/s</p>
                             </div>
                         </div>
 
                         <div>
-                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Prakiraan 5 Hari</h3>
-                            <div className="space-y-2">
-                                {weatherData.daily.slice(1, 6).map((day) => (
-                                    <div key={day.dt} className="flex items-center justify-between bg-gray-50 rounded-lg p-2">
-                                        <p className="font-semibold w-1/3">{new Date(day.dt * 1000).toLocaleDateString('id-ID', { weekday: 'long' })}</p>
-                                        <WeatherIcon icon={day.weather.icon} size={40} />
-                                        <p className="w-1/4 text-right">{Math.round(day.temp.day)}° / {Math.round(day.temp.night)}°</p>
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Prakiraan 5 Hari</h3>
+                            <div className="space-y-3">
+                                {weatherData.daily.slice(1, 6).map((day, index) => (
+                                    <div key={day.dt} className={`flex items-center justify-between bg-white rounded-lg p-4 shadow-sm transition-all duration-300 hover:shadow-md animate-slide-up-delay-${index}`}>
+                                        <p className="font-bold text-lg w-1/3 text-gray-700">{new Date(day.dt * 1000).toLocaleDateString('id-ID', { weekday: 'long' })}</p>
+                                        <WeatherIcon icon={day.weather.icon} size={50} />
+                                        <p className="w-1/4 text-right text-lg text-gray-800">{Math.round(day.temp.day)}° / {Math.round(day.temp.night)}°</p>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </div>
                 ) : (
-                    <div className="text-center text-gray-500 pt-10">
-                        <p>Silakan cari lokasi untuk memulai.</p>
+                    <div className="text-center text-gray-500 pt-16">
+                        <span className="material-icons text-6xl text-gray-300">location_on</span>
+                        <p className="mt-4 text-lg">Silakan cari lokasi untuk memulai.</p>
                     </div>
                 )}
             </div>

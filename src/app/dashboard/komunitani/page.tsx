@@ -1,159 +1,136 @@
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: "Komunitani - TaniMaju",
-    description: "Komunitani for TaniMaju",
-};
+"use client";
+import { useState, useEffect } from 'react';
 
 const KomunitaniPage = () => {
+    const [hargaPangan, setHargaPangan] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [filter, setFilter] = useState('');
+
+    const fetchData = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const res = await fetch('/api/harga-pangan');
+            if (!res.ok) {
+                throw new Error('Gagal mengambil data');
+            }
+            const data = await res.json();
+            if (Array.isArray(data)) {
+                // Filter out items that are not objects or don't have the required properties
+                const validData = data.filter(item => item && typeof item.komoditas === 'string' && typeof item.harga === 'number' && typeof item.perubahan === 'number');
+                setHargaPangan(validData);
+            } else {
+                throw new Error('Format data tidak valid');
+            }
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const filteredData = hargaPangan.filter(item =>
+        item && typeof item.komoditas === 'string' && item.komoditas.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    const totalKomoditas = hargaPangan.length;
+    const hargaNaik = hargaPangan.filter(item => item.perubahan > 0).length;
+    const hargaTurun = hargaPangan.filter(item => item.perubahan < 0).length;
+    const totalPerubahan = hargaPangan.reduce((acc, item) => acc + item.perubahan, 0);
+    const rataRataPerubahan = totalKomoditas > 0 ? (totalPerubahan / totalKomoditas) : 0;
+
     return (
-        <main className="flex-1 overflow-y-auto bg-white p-6">
-            <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-semibold text-gray-800 flex items-center">
-                    <span className="material-icons mr-2">bar_chart</span> Monitor Harga Pangan Nasional
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-8">
+            <div className="flex justify-between items-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-800 flex items-center">
+                    <span className="material-icons mr-3 text-green-500">bar_chart</span> Monitor Harga Pangan Nasional
                 </h1>
-                <button className="px-4 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-300 rounded-md flex items-center">
-                    <span className="material-icons text-green-500 text-base mr-2">fiber_manual_record</span> Live Update
+                <button 
+                    onClick={fetchData}
+                    className="px-5 py-3 text-md font-semibold text-white bg-green-500 rounded-full shadow-md hover:bg-green-600 transition-colors duration-300 flex items-center"
+                >
+                    <span className={`material-icons text-base mr-2 ${loading ? 'animate-spin' : ''}`}>
+                        {loading ? 'refresh' : 'fiber_manual_record'}
+                    </span> 
+                    {loading ? 'Memuat...' : 'Live Update'}
                 </button>
             </div>
-            <div className="grid grid-cols-4 gap-6 mb-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="text-sm text-gray-600">Total Komoditas</p>
-                    <p className="text-3xl font-bold text-gray-800">6</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div className="bg-white p-6 rounded-xl shadow-md">
+                    <p className="text-md font-semibold text-gray-600">Total Wilayah</p>
+                    <p className="text-4xl font-bold text-gray-800 mt-2">{totalKomoditas}</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="text-sm text-gray-600">Harga Naik</p>
-                    <p className="text-3xl font-bold text-green-500">3</p>
+                <div className="bg-white p-6 rounded-xl shadow-md">
+                    <p className="text-md font-semibold text-gray-600">Harga Naik</p>
+                    <p className="text-4xl font-bold text-red-500 mt-2">{hargaNaik}</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="text-sm text-gray-600">Harga Turun</p>
-                    <p className="text-3xl font-bold text-orange-500">2</p>
+                <div className="bg-white p-6 rounded-xl shadow-md">
+                    <p className="text-md font-semibold text-gray-600">Harga Turun</p>
+                    <p className="text-4xl font-bold text-green-500 mt-2">{hargaTurun}</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="text-sm text-gray-600">Rata-rata</p>
-                    <p className="text-xl font-bold text-red-500 flex items-center">
-                        +1.1%
+                <div className="bg-white p-6 rounded-xl shadow-md">
+                    <p className="text-md font-semibold text-gray-600">Rata-rata Perubahan</p>
+                    <p className={`text-2xl font-bold flex items-center mt-2 ${rataRataPerubahan >= 0 ? 'text-red-500' : 'text-green-500'}`}>
+                        {rataRataPerubahan >= 0 ? '+' : ''}{rataRataPerubahan.toFixed(1)}%
                     </p>
                 </div>
             </div>
-            <div className="flex mb-6 border border-gray-200 rounded-lg p-1">
-                <button className="w-1/3 py-2 text-center text-sm font-semibold text-gray-800 bg-white rounded-md shadow-sm">Overview</button>
-                <button className="w-1/3 py-2 text-center text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md">Trend</button>
-                <button className="w-1/3 py-2 text-center text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md">Analisis</button>
-            </div>
-            <div className="flex justify-between items-center mb-4">
-                <div className="relative w-1/3">
-                    <span className="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">search</span>
-                    <input className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Cari Komoditas..." type="text" />
-                </div>
-                <div className="flex items-center space-x-4">
-                    <select className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Semua</option>
-                    </select>
-                    <select className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Jakarta</option>
-                    </select>
-                </div>
-            </div>
-            <div className="bg-white rounded-lg relative">
-                <div className="overflow-y-auto" style={{ height: 'calc(100vh - 430px)' }}>
-                    <div className="divide-y divide-gray-200">
-                        <div className="flex items-center justify-between p-4 hover:bg-gray-50">
-                            <div className="flex items-center">
-                                <div>
-                                    <p className="font-semibold text-gray-800">Beras Premium <span className="text-sm font-normal text-gray-600">Beras</span></p>
-                                    <div className="flex items-center text-xs text-gray-600 mt-1">
-                                        <span className="material-icons text-sm mr-1">location_on</span>
-                                        <span>Jakarta</span>
-                                        <span className="mx-2">•</span>
-                                        <span>2 jam lalu</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <p className="font-semibold text-gray-800">Rp 12.500 <span className="text-sm font-normal text-gray-600">/kg</span></p>
-                                <div className="flex items-center justify-end text-sm text-red-500">
-                                    <span className="material-icons text-base">arrow_upward</span>
-                                    <span>+4.2%</span>
-                                </div>
-                            </div>
+            <div className="bg-white rounded-xl shadow-md">
+                
+                <div className="p-6">
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="relative w-1/3">
+                            <span className="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">search</span>
+                            <input 
+                                className="w-full pl-12 pr-4 py-3 border border-gray-400 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 text-md text-gray-900 custom-placeholder" 
+                                placeholder="Cari Komoditas..." 
+                                type="text"
+                                value={filter}
+                                onChange={e => setFilter(e.target.value)}
+                            />
                         </div>
-                        <div className="flex items-center justify-between p-4 hover:bg-gray-50">
-                            <div>
-                                <p className="font-semibold text-gray-800">Ayam Broiler <span className="text-sm font-normal text-gray-600">Daging</span></p>
-                                <div className="flex items-center text-xs text-gray-600 mt-1">
-                                    <span className="material-icons text-sm mr-1">location_on</span>
-                                    <span>Jakarta</span>
-                                    <span className="mx-2">•</span>
-                                    <span>1 jam lalu</span>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <p className="font-semibold text-gray-800">Rp 32.000 <span className="text-sm font-normal text-gray-600">/kg</span></p>
-                                <div className="flex items-center justify-end text-sm text-green-500">
-                                    <span className="material-icons text-base">arrow_downward</span>
-                                    <span>-5.8%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-between p-4 hover:bg-gray-50">
-                            <div>
-                                <p className="font-semibold text-gray-800">Telur Ayam <span className="text-sm font-normal text-gray-600">Telur</span></p>
-                                <div className="flex items-center text-xs text-gray-600 mt-1">
-                                    <span className="material-icons text-sm mr-1">location_on</span>
-                                    <span>Jakarta</span>
-                                    <span className="mx-2">•</span>
-                                    <span>3 jam lalu</span>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <p className="font-semibold text-gray-800">Rp 28.000 <span className="text-sm font-normal text-gray-600">/kg</span></p>
-                                <div className="flex items-center justify-end text-sm text-red-500">
-                                    <span className="material-icons text-base">arrow_upward</span>
-                                    <span>+1.8%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-between p-4 hover:bg-gray-50">
-                            <div>
-                                <p className="font-semibold text-gray-800">Minyak Goreng <span className="text-sm font-normal text-gray-600">Minyak</span></p>
-                                <div className="flex items-center text-xs text-gray-600 mt-1">
-                                    <span className="material-icons text-sm mr-1">location_on</span>
-                                    <span>Jakarta</span>
-                                    <span className="mx-2">•</span>
-                                    <span>1 jam lalu</span>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <p className="font-semibold text-gray-800">Rp 16.000 <span className="text-sm font-normal text-gray-600">/liter</span></p>
-                                <div className="flex items-center justify-end text-sm text-green-500">
-                                    <span className="material-icons text-base">arrow_downward</span>
-                                    <span>-3.0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-between p-4 hover:bg-gray-50">
-                            <div>
-                                <p className="font-semibold text-gray-800">Gula Pasir <span className="text-sm font-normal text-gray-600">Gula</span></p>
-                                <div className="flex items-center text-xs text-gray-600 mt-1">
-                                    <span className="material-icons text-sm mr-1">location_on</span>
-                                    <span>Jakarta</span>
-                                    <span className="mx-2">•</span>
-                                    <span>4 jam lalu</span>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <p className="font-semibold text-gray-800">Rp 14.000 <span className="text-sm font-normal text-gray-600">/kg</span></p>
-                                <div className="flex items-center justify-end text-sm text-gray-600">
-                                    <span className="material-icons text-base">trending_flat</span>
-                                    <span>0.0%</span>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-                </div>
-                <div className="absolute top-0 right-0 h-full w-2">
-                    <div className="bg-gray-300 rounded-full w-1.5 h-1/2 mx-auto"></div>
+                    <div className="overflow-y-auto" style={{ height: 'calc(100vh - 500px)' }}>
+                        {loading && <p className="text-center text-gray-500">Memuat data...</p>}
+                        {error && <p className="text-center text-red-500">Error: {error}</p>}
+                        {!loading && !error && (
+                            <div className="divide-y divide-gray-100">
+                                {filteredData.map((item, index) => (
+                                    <div key={index} className="flex items-center justify-between p-5 hover:bg-gray-50 rounded-lg transition-colors duration-200">
+                                        <div className="flex items-center">
+                                            <div className={`w-12 h-12 ${item.perubahan > 0 ? 'bg-red-100' : 'bg-green-100'} rounded-full flex items-center justify-center mr-4`}>
+                                                <span className={`material-icons ${item.perubahan > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                                                    {item.icon || 'local_florist'}
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <p className="font-bold text-lg text-gray-800">{item.komoditas} <span className="text-sm font-normal text-gray-500">/kg</span></p>
+                                                <div className="flex items-center text-sm text-gray-500 mt-1">
+                                                    <span className="material-icons text-sm mr-1">location_on</span>
+                                                    <span>{item.lokasi}</span>
+                                                    <span className="mx-2">•</span>
+                                                    <span>{item.waktu}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="font-bold text-xl text-gray-800">Rp {item.harga.toLocaleString('id-ID')}</p>
+                                            <div className={`flex items-center justify-end text-md font-semibold ${item.perubahan > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                                                <span className="material-icons text-lg">{item.perubahan > 0 ? 'arrow_upward' : 'arrow_downward'}</span>
+                                                <span>{item.perubahan > 0 ? '+' : ''}{item.perubahan.toFixed(1)}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </main>

@@ -144,48 +144,48 @@ const DokterTaniPage = () => {
   };
 
   return (
-    <div className="flex-1 p-6">
-      <div className="bg-white rounded-lg shadow-md h-full flex flex-col">
+    <div className="flex-1 p-8 bg-gray-50">
+      <div className="bg-white rounded-xl shadow-md h-full flex flex-col">
         {/* Header */}
-        <div className="p-4 border-b flex items-center">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+        <div className="p-5 border-b flex items-center bg-green-600 text-white rounded-t-xl">
+          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
             <span
-              className="material-icons text-green-500"
-              style={{ fontSize: "32px" }}
+              className="material-icons text-green-600"
+              style={{ fontSize: "40px" }}
             >
               psychology
             </span>
           </div>
           <div className="ml-4">
-            <h2 className="text-lg font-semibold text-gray-800">
+            <h2 className="text-xl font-bold">
               Dokter Tani AI
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-green-100">
               Chatbot Diagnosa Penyakit Tanaman
             </p>
           </div>
         </div>
 
         {/* Chat History */}
-        <div ref={chatContainerRef} className="flex-1 p-6 overflow-y-auto">
+        <div ref={chatContainerRef} className="flex-1 p-6 overflow-y-auto bg-gray-100">
           {chatHistory.map((chat, index) => (
             <div
               key={index}
-              className={`flex items-start mb-4 ${
+              className={`flex items-start mb-6 ${
                 chat.sender === "user" ? "justify-end" : ""
               }`}
             >
               {chat.sender === "ai" && (
-                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span className="material-icons text-green-500 text-lg">
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <span className="material-icons text-white text-2xl">
                     psychology
                   </span>
                 </div>
               )}
               <div
-                className={`rounded-lg p-3 max-w-lg ${
+                className={`rounded-xl p-4 max-w-lg shadow-sm ${
                   chat.sender === "ai"
-                    ? "bg-gray-100 text-black"
+                    ? "bg-white text-gray-800"
                     : "bg-green-500 text-white"
                 }`}
               >
@@ -193,16 +193,16 @@ const DokterTaniPage = () => {
                   <Image
                     src={chat.image}
                     alt="User upload"
-                    width={200}
-                    height={200}
-                    className="rounded-md mb-2"
+                    width={250}
+                    height={250}
+                    className="rounded-lg mb-3"
                   />
                 )}
-                <p className="text-sm" style={{ whiteSpace: 'pre-wrap' }}>{chat.text}</p>
+                <p className="text-md" style={{ whiteSpace: 'pre-wrap' }}>{chat.text}</p>
                 <p
                   className={`text-right text-xs mt-2 ${
                     chat.sender === "ai"
-                      ? "text-gray-500"
+                      ? "text-gray-400"
                       : "text-green-200"
                   }`}
                 >
@@ -210,21 +210,21 @@ const DokterTaniPage = () => {
                 </p>
               </div>
               {chat.sender === "user" && (
-                <div className="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center ml-3 flex-shrink-0 font-bold text-blue-800">
+                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center ml-4 flex-shrink-0 font-bold text-white">
                   U
                 </div>
               )}
             </div>
           ))}
           {isLoading && (
-            <div className="flex items-start mb-4">
-              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                <span className="material-icons text-green-500 text-lg">
+            <div className="flex items-start mb-6">
+              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <span className="material-icons text-white text-2xl">
                   psychology
                 </span>
               </div>
-              <div className="bg-gray-100 rounded-lg p-3 max-w-lg">
-                <p className="text-sm text-gray-800">
+              <div className="bg-white rounded-xl p-4 max-w-lg shadow-sm">
+                <p className="text-md text-gray-800">
                   Dokter Tani AI sedang menganalisis...
                 </p>
               </div>
@@ -233,19 +233,19 @@ const DokterTaniPage = () => {
         </div>
 
         {/* Message Input */}
-        <div className="p-4 border-t">
+        <div className="p-5 border-t bg-white rounded-b-xl">
           {imagePreview && (
-            <div className="relative w-24 h-24 mb-2">
+            <div className="relative w-28 h-28 mb-3">
               <Image
                 src={imagePreview}
                 alt="Image preview"
                 layout="fill"
                 objectFit="cover"
-                className="rounded-md"
+                className="rounded-lg border border-gray-200"
               />
               <button
                 onClick={removeImage}
-                className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 w-6 h-6 flex items-center justify-center text-xs"
+                className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-1 w-7 h-7 flex items-center justify-center text-sm shadow-md hover:bg-red-700 transition-transform duration-200 transform hover:scale-110"
               >
                 X
               </button>
@@ -262,13 +262,13 @@ const DokterTaniPage = () => {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="p-2 rounded-full hover:bg-gray-100 mr-2"
+              className="p-3 rounded-full hover:bg-gray-200 mr-3 transition-colors duration-200"
               disabled={isLoading}
             >
-              <span className="material-icons text-gray-500">attach_file</span>
+              <span className="material-icons text-gray-600">attach_file</span>
             </button>
             <input
-              className="w-full pl-4 pr-12 py-3 border rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500 text-black"
+              className="w-full pl-5 pr-16 py-4 border rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500 text-black text-md"
               placeholder="Ketik pesan atau unggah gambar..."
               type="text"
               value={message}
@@ -277,7 +277,7 @@ const DokterTaniPage = () => {
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-500 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-green-600 disabled:bg-gray-300"
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-green-500 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-green-600 disabled:bg-gray-400 transition-transform duration-200 transform hover:scale-105 shadow-lg"
               disabled={isLoading || (!message.trim() && !imageFile)}
             >
               <span className="material-icons">send</span>

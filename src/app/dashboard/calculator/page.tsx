@@ -44,96 +44,85 @@ const CalculatorPage = () => {
     }, [landArea, cropType]);
 
     return (
-        <div className="p-8">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 max-w-4xl mx-auto">
-                <div className="flex items-start mb-8">
-                    <div className="bg-green-100 p-3 rounded-lg mr-4">
-                        <span className="material-icons text-green-600" style={{ fontSize: '28px' }}>calculate</span>
+        <div className="p-8 bg-gray-50">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-md max-w-4xl mx-auto">
+                <div className="flex items-center p-6 bg-green-600 text-white rounded-t-xl">
+                    <div className="bg-white p-3 rounded-full mr-4">
+                        <span className="material-icons text-green-600" style={{ fontSize: '32px' }}>calculate</span>
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold text-gray-800">Kalkulator Kebutuhan Pupuk</h1>
-                        <p className="text-gray-600">Rencanakan kebutuhan pupuk Anda dengan akurat.</p>
+                        <h1 className="text-2xl font-bold">Kalkulator Kebutuhan Pupuk</h1>
+                        <p className="text-green-100">Rencanakan kebutuhan pupuk Anda dengan akurat.</p>
                     </div>
                 </div>
 
                 {/* Input Section */}
-                <div className="grid md:grid-cols-2 gap-8 mb-8 p-6 bg-gray-50 rounded-lg">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-800 mb-2" htmlFor="land-area">
-                            Luas Lahan (hektar)
-                        </label>
-                        <input 
-                            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition text-gray-900"
-                            id="land-area" 
-                            placeholder="Contoh: 1.5"
-                            type="number"
-                            value={landArea}
-                            onChange={(e) => setLandArea(e.target.value)}
-                            min="0"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-800 mb-2" htmlFor="crop-type">
-                            Jenis Tanaman
-                        </label>
-                        <div className="relative">
-                            <select 
-                                className="w-full border border-gray-300 rounded-lg p-3 appearance-none pr-8 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition bg-white text-gray-900"
-                                id="crop-type"
-                                value={cropType}
-                                onChange={(e) => setCropType(e.target.value)}
-                            >
-                                <option value="padi">Padi</option>
-                                <option value="jagung">Jagung</option>
-                                <option value="kedelai">Kedelai</option>
-                                <option value="cabai">Cabai</option>
-                                <option value="bawang_merah">Bawang Merah</option>
-                            </select>
-                            <span className="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">expand_more</span>
+                <div className="p-8">
+                    <div className="grid md:grid-cols-2 gap-8 mb-8 p-6 bg-gray-100 rounded-lg">
+                        <div>
+                            <label className="block text-md font-medium text-gray-800 mb-2" htmlFor="land-area">
+                                Luas Lahan (hektar)
+                            </label>
+                            <input 
+                                className="w-full border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition text-gray-900 text-lg"
+                                id="land-area" 
+                                placeholder="Contoh: 1.5"
+                                type="number"
+                                value={landArea}
+                                onChange={(e) => setLandArea(e.target.value)}
+                                min="0"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-md font-medium text-gray-800 mb-2" htmlFor="crop-type">
+                                Jenis Tanaman
+                            </label>
+                            <div className="relative">
+                                <select 
+                                    className="w-full border border-gray-300 rounded-lg p-4 appearance-none pr-10 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition bg-white text-gray-900 text-lg"
+                                    id="crop-type"
+                                    value={cropType}
+                                    onChange={(e) => setCropType(e.target.value)}
+                                >
+                                    <option value="padi">Padi</option>
+                                    <option value="jagung">Jagung</option>
+                                    <option value="kedelai">Kedelai</option>
+                                    <option value="cabai">Cabai</option>
+                                    <option value="bawang_merah">Bawang Merah</option>
+                                </select>
+                                <span className="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">expand_more</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Results Section */}
-                <div className="mb-6">
-                    <h2 className="text-lg font-semibold text-gray-800 flex items-center mb-4">
-                        <span className="material-icons text-green-500 mr-2">inventory_2</span>
-                        Hasil Perhitungan Kebutuhan Pupuk
-                    </h2>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-gray-100 border-b border-gray-200">
-                                    <th className="py-3 px-4 text-sm font-medium text-gray-600">Jenis Pupuk</th>
-                                    <th className="py-3 px-4 text-sm font-medium text-gray-600 text-right">Jumlah Kebutuhan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="border-b border-gray-200">
-                                    <td className="py-4 px-4 flex items-center text-gray-800">
-                                        <span className="material-icons text-blue-500 mr-3">grain</span>Urea
-                                    </td>
-                                    <td className="py-4 px-4 text-gray-800 font-semibold text-right">{formatNumber(calculatedNeeds.urea)} kg</td>
-                                </tr>
-                                <tr className="border-b border-gray-200">
-                                    <td className="py-4 px-4 flex items-center text-gray-800">
-                                        <span className="material-icons text-orange-500 mr-3">grain</span>SP-36
-                                    </td>
-                                    <td className="py-4 px-4 text-gray-800 font-semibold text-right">{formatNumber(calculatedNeeds.sp36)} kg</td>
-                                </tr>
-                                <tr className="border-b border-gray-200">
-                                    <td className="py-4 px-4 flex items-center text-gray-800">
-                                        <span className="material-icons text-red-500 mr-3">grain</span>KCl
-                                    </td>
-                                    <td className="py-4 px-4 text-gray-800 font-semibold text-right">{formatNumber(calculatedNeeds.kcl)} kg</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    {/* Results Section */}
+                    <div className="mb-6">
+                        <h2 className="text-2xl font-bold text-gray-800 flex items-center mb-4">
+                            <span className="material-icons text-green-500 mr-3">inventory_2</span>
+                            Hasil Perhitungan
+                        </h2>
+                        <div className="grid md:grid-cols-3 gap-6 text-center">
+                            <div className="bg-blue-100 p-6 rounded-lg shadow-sm">
+                                <h3 className="text-lg font-semibold text-blue-800">Urea</h3>
+                                <p className="text-4xl font-bold text-blue-900 mt-2">{formatNumber(calculatedNeeds.urea)}</p>
+                                <p className="text-md text-blue-700">kg</p>
+                            </div>
+                            <div className="bg-orange-100 p-6 rounded-lg shadow-sm">
+                                <h3 className="text-lg font-semibold text-orange-800">SP-36</h3>
+                                <p className="text-4xl font-bold text-orange-900 mt-2">{formatNumber(calculatedNeeds.sp36)}</p>
+                                <p className="text-md text-orange-700">kg</p>
+                            </div>
+                            <div className="bg-red-100 p-6 rounded-lg shadow-sm">
+                                <h3 className="text-lg font-semibold text-red-800">KCl</h3>
+                                <p className="text-4xl font-bold text-red-900 mt-2">{formatNumber(calculatedNeeds.kcl)}</p>
+                                <p className="text-md text-red-700">kg</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="mt-8 text-sm text-gray-500">
-                    <p><strong>Catatan:</strong> Perhitungan ini adalah estimasi berdasarkan dosis umum. Kebutuhan pupuk sebenarnya dapat bervariasi tergantung pada kondisi tanah, iklim, dan varietas tanaman. Selalu lakukan uji tanah untuk rekomendasi yang lebih akurat.</p>
+                    <div className="mt-8 text-sm text-gray-600 bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                        <p><strong><span className="material-icons text-yellow-600 mr-2" style={{fontSize: '18px', verticalAlign: 'bottom'}}>info</span>Catatan:</strong> Perhitungan ini adalah estimasi berdasarkan dosis umum. Kebutuhan pupuk sebenarnya dapat bervariasi tergantung pada kondisi tanah, iklim, dan varietas tanaman. Selalu lakukan uji tanah untuk rekomendasi yang lebih akurat.</p>
+                    </div>
                 </div>
             </div>
         </div>
