@@ -10,9 +10,14 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            alert('Password dan konfirmasi password tidak cocok!');
+            return;
+        }
         try {
             const { data, error } = await supabase.auth.signUp({
                 email: email,
@@ -52,9 +57,7 @@ const RegisterPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-10 h-10 bg-black text-white flex items-center justify-center rounded-full font-bold">
-                        N
-                    </div>
+                    
                 </div>
                 <div className="w-1/2 flex items-center justify-center bg-gray-50 p-16">
                     <div className="w-full max-w-md bg-white p-12 rounded-xl shadow-lg">
@@ -75,8 +78,12 @@ const RegisterPage = () => {
                             <div className="relative">
                                 <label className="text-sm font-medium text-gray-700" htmlFor="password">Password</label>
                                 <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="password" name="password" placeholder="Buat password yang kuat" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <span className="material-icons absolute inset-y-0 right-0 top-7 flex items-center pr-3 text-gray-400 cursor-pointer">visibility</span>
                             </div>
+                            <div className="relative">
+                                <label className="text-sm font-medium text-gray-700" htmlFor="confirmPassword">Konfirmasi Password</label>
+                                <input className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 text-black" id="confirmPassword" name="confirmPassword" placeholder="Konfirmasi password Anda" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                            </div>
+                            
                             <button className="w-full bg-green-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 transition" type="submit">Daftar</button>
                         </form>
                         <p className="mt-6 text-center text-sm text-gray-600">

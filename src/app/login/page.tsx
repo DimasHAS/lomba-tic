@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,9 +43,7 @@ const LoginPage = () => {
                             <button className="bg-white text-green-500 px-6 py-3 rounded-lg font-semibold border border-green-500 hover:bg-green-50 transition">Pelajari Lebih Lanjut</button>
                         </div>
                     </div>
-                    <div className="w-10 h-10 bg-gray-800 text-white flex items-center justify-center rounded-full font-bold">
-                        N
-                    </div>
+                    
                 </div>
                 <div className="w-1/2 flex items-center justify-center bg-white">
                     <div className="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md">
@@ -57,9 +56,9 @@ const LoginPage = () => {
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="password">Password</label>
                                 <div className="relative">
-                                    <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-black" id="password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                    <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer">
-                                        <i className="material-icons">visibility</i>
+                                    <input className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-black" id="password" placeholder="Password" type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+                                        <i className="material-icons">{showPassword ? "visibility_off" : "visibility"}</i>
                                     </span>
                                 </div>
                             </div>
