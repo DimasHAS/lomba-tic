@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriDash</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+<div class="flex h-screen">
+<aside class="w-64 bg-white border-r">
+<div class="flex items-center justify-center h-16 border-b">
+<img alt="AgriDash Logo" class="h-8 w-8 mr-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCY9rKIS19VENyCVSMsHykbvcDJEzTdyq__ElH9fAkIPdVQkF144bZMSmDi4nleQiDMAT2kj1c4dKbZZAaDgI8SUSawvd_xyTOq6yhv3VjIZz-RQP5Na3GcDDvJxxuCHieBX_k3NCSF8t3JjmujoswA5GlVoTrvVcwIf9sitRIrAd16IlPLbqc7QNYW2ZsSCftcqdgmZf449Lbd9DJnQccYnIJZrh4h9FZ7X8D8P7uBBLUSrG_cWwRb9ROOXbomJ_T9oeX-U9ZKg"/>
+<span class="text-xl font-bold">AgriDash</span>
+</div>
+<nav class="mt-6">
+<h3 class="px-6 mb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">Navigation</h3>
+<ul>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-700 bg-gray-100 font-semibold" href="#">
+<span class="material-icons mr-3">dashboard</span>
+                            Dashboard
+                        </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">medical_services</span>
+                            Dokter Tani
+                        </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">cloud</span>
+                            Weather Prediction
+                        </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">calculate</span>
+                            Calculator
+                        </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">groups</span>
+                            Komunitani
+                        </a>
+</li>
+</ul>
+<h3 class="px-6 mt-6 mb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">Tools</h3>
+<ul>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">analytics</span>
+                            Analytics
+                        </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100" href="#">
+<span class="material-icons mr-3">settings</span>
+                            Settings
+                        </a>
+</li>
+</ul>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col">
+<header class="flex items-center justify-between h-16 px-6 bg-white border-b">
+<div></div>
+<div class="flex items-center">
+<button class="p-2 rounded-full hover:bg-gray-100">
+<span class="material-icons text-gray-600">notifications_none</span>
+</button>
+<div class="ml-4 flex items-center">
+<div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-800">PB</div>
+<div class="ml-2">
+<p class="font-semibold text-sm">Pak Budi</p>
+<p class="text-xs text-gray-500">Farmer</p>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 p-6">
+<h1 class="text-3xl font-bold">Dashboard</h1>
+<p class="mt-2 text-gray-600">Selamat datang kembali, Pak Budi. Berikut adalah ringkasan aktivitas pertanian Anda.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<p class="text-sm text-gray-600">Total Lahan</p>
+<span class="material-icons text-gray-400">landscape</span>
+</div>
+<p class="text-3xl font-bold mt-2">2.5 Ha</p>
+<p class="text-xs text-gray-500 mt-1">+0.5 Ha dari bulan lalu</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<p class="text-sm text-gray-600">Tanaman Aktif</p>
+<span class="material-icons text-gray-400">eco</span>
+</div>
+<p class="text-3xl font-bold mt-2">3</p>
+<p class="text-xs text-gray-500 mt-1">Padi, Jagung, Cabai</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<p class="text-sm text-gray-600">Perkiraan Panen</p>
+<span class="material-icons text-gray-400">event</span>
+</div>
+<p class="text-3xl font-bold mt-2">45 Hari</p>
+<p class="text-xs text-gray-500 mt-1">Padi varietas IR64</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<p class="text-sm text-gray-600">Cuaca Hari Ini</p>
+<span class="material-icons text-gray-400">wb_sunny</span>
+</div>
+<p class="text-3xl font-bold mt-2">28°C</p>
+<p class="text-xs text-gray-500 mt-1">Berawan, 70% kelembaban</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center">
+<div class="p-3 bg-green-100 rounded-lg">
+<span class="material-icons text-green-600">medical_services</span>
+</div>
+<h2 class="text-lg font-semibold ml-4">Dokter Tani</h2>
+</div>
+<span class="text-sm font-semibold text-gray-600">12</span>
+</div>
+<p class="mt-4 text-gray-600 text-sm">Digital Plant Pathology Expert - Upload photos for instant plant disease diagnosis</p>
+<p class="mt-2 text-xs text-gray-500">Deteksi Hari Ini: 12</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center">
+<div class="p-3 bg-blue-100 rounded-lg">
+<span class="material-icons text-blue-600">cloud</span>
+</div>
+<h2 class="text-lg font-semibold ml-4">Weather Prediction</h2>
+</div>
+<span class="text-sm font-semibold text-gray-600">94%</span>
+</div>
+<p class="mt-4 text-gray-600 text-sm">Real-time weather forecasts and yield predictions for optimal planting schedules</p>
+<p class="mt-2 text-xs text-gray-500">Akurasi Prediksi: 94%</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center">
+<div class="p-3 bg-orange-100 rounded-lg">
+<span class="material-icons text-orange-600">calculate</span>
+</div>
+<h2 class="text-lg font-semibold ml-4">Planting Calculator</h2>
+</div>
+<span class="text-sm font-semibold text-gray-600">28</span>
+</div>
+<p class="mt-4 text-gray-600 text-sm">Complete input planning calculator for full-cycle farming cost estimation</p>
+<p class="mt-2 text-xs text-gray-500">Kalkulasi Bulan Ini: 28</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center">
+<div class="p-3 bg-purple-100 rounded-lg">
+<span class="material-icons text-purple-600">groups</span>
+</div>
+<h2 class="text-lg font-semibold ml-4">Komunitani</h2>
+</div>
+<span class="text-sm font-semibold text-gray-600">1,247</span>
+</div>
+<p class="mt-4 text-gray-600 text-sm">Connect with fellow farmers, share experiences, and get community support</p>
+<p class="mt-2 text-xs text-gray-500">Anggota Aktif: 1,247</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
