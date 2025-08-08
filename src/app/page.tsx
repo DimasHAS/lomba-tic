@@ -67,7 +67,7 @@ const testimonials = [
     quote: "Sebelum pakai TaniMaju, saya sering bingung kapan waktu yang tepat untuk panen. Sekarang dengan sistem rekomendasi, hasil panen lebih berkualitas.",
     name: "Bu Siti Nurhaliza",
     role: "Petani Cabai, Sumatera Utara",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwdZqkIgCxQdzDGjNMXrVzkMjQIOMEjUC22_UF5Tq11vSXB_peM5jsPYYvMVpYG5fkhVG2XbbZ9hwcJxIKL4OxNkyiDgre5xRJigOBfuzksvUNdqLGL-cvPmcWq0tmVV1PyuqyVRQOCUhT3ONReV6KHHyGO7sEwXXu4xmjIZTBCYeNKYjXsTUUsdwTJgcYbntGXWoudieP_rybQeTPVml1b1oF4h7kdE1t5TXaKj8VkLzPiwXZ0DYVitWdiQ9Sqk8C9FdX5YF8Sh25IV6_c29GI7KpAmUJCQXhkiCYrXSHJ6UT1MmhErf29s6IWin2prYY-6ftWBVfMc",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwdZqkIgCxQdzDGjNMXrVzkMjQIOMEjUC22_UF5Tq11vSXB_peM5jsPYYvMVpYG5fkhVG2XbbZ9hwcJxIKL4OxNkyiDgre5xRJigOBfuzksvUNdqLGL-cvPmcWq0tmVV1PyuqyVRQOCUhT3ONReV6KHHyGO7sEwXXu4xmjIZTBCYeNKYiX-sTUUsdwTJgcYbntGXWoudieP_rybQeTPVml1b1oF4h7kdE1t5TXaKj8VkLzPiwXZ0DYVitWdiQ9Sqk8C9FdX5YF8Sh25IV6_c29GI7KpAmUJCQXhkiCYrXSHJ6UT1MmhErf29s6IWin2prYY-6ftWBVfMc",
     verified: true,
   },
 ];
@@ -85,7 +85,7 @@ const compactTestimonials = [
     quote: "\"TaniMaju membantu saya merencanakan jadwal tanam yang optimal. Dengan rotasi tanaman yang tepat, tanah tetap subur dan produksi stabil sepanjang tahun.\"",
     name: "Pak Agus Salim",
     role: "Petani Palawija, Sulawesi Selatan",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqvdl63HvqztZXFUP8rif-YNsMlbjfhHul0dAkEaPE1kjj3LawtwWcuejFbuTfBVN0NfQ6_c3OvPW08PUXlssM547HbjJ6eqPdaKogRz41cG0RG3v731jSCIJxlmyGyBgHhss9M4m0e-RVe3jyQQ4vyXZVqQXv4TGKflXv7RZGAiZwwZGMSErvC2OGpwzNBFSXRZMy75pYYuX8uB4pBPyYZSSxa2C6nHxOielJ2UaB8whiSPaE9OpY97h7VOdILX3KZI6k-Xvtr9mh",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqvdl63HvqztZXFUP8rif-YNsMlbjfhHul0dAkEaPE1kjj3LawtwWcuejFbuTfBVN0NfQ6_c3OvPW08PUXlssM547HbjJ6eqPdaKogRz41cG0RG3v731jSCIJxlmyGyBgHhss9M4m0e-RVe3jyQQ4vyXZVqQXv4TGwKflXv7RZGAiZwwZGMSErvC2OGpwzNBFSXRZMy75pYYuX8uB4pBPyYZSSxa2C6nHxOielJ2UaB8whiSPaE9OpY97h7VOdILX3KZI6k-Xvtr9mh",
   },
   {
     type: "compact",
@@ -99,7 +99,7 @@ const compactTestimonials = [
     quote: "\"Panduan budidaya yang diberikan sangat detail dan mudah diikuti. Bahkan untuk tanaman baru yang belum pernah saya tanam sebelumnya.\"",
     name: "Pak Hario Susilo",
     role: "Petani Hortikultura, Bandung",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZcRjbrc6J68Adj6ZjtaIIV0JYChlZUike_6tF7MTN550P7IssiWBLS1E7YoveYUpy2LBdSXubNngYJaX-fQOduCs6RsCrgsqzFR-u8hU0vXxXhaK5V4ktbkMSrxciAYTFT2zDQaZKbwFjUIoVE1Fpb1y5N-w7XY75nlZGmBTjx2P7DP6Bz20FE3_xPY2qiP6x_uulcf8gg1JLmZIxbkoHw3DHnG6xjOFUq4zEoTh-FVOfHkrkP7h4IVoZ_8bv5JJWsiNdWmaJ_",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZcRjbrc6J68Adj6ZjtaIIV0JYChlZUike_6tF7MTN550P7IssiWBLS1E7YoveYUpy2LBdSXubNngYJaX-fQOduCs6RsCrgsqzFR-u8hU0vXxXhaK5V4ktbkMSrxciAYTFT2zDQaZKbwFjUIoVE1Fpb1y5N-w7XY75nlZGmBTjx2P7DP6Bz20FE3_qMmLOftdvyqiwRPSQ2HYiYTZ",
   },
 ];
 
