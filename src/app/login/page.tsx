@@ -65,7 +65,7 @@ const LoginPage = () => {
                             <button className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition shadow" type="submit">Masuk</button>
                         </form>
                         <div className="text-right mt-4">
-                            <a className="text-sm text-green-500 hover:underline" href="#">Lupa Password?</a>
+                            <Link className="text-sm text-green-500 hover:underline" href="/reset-password">Lupa Password?</Link>
                         </div>
                         <div className="flex items-center my-6">
                             <div className="flex-grow border-t border-gray-200"></div>
