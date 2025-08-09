@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState, useEffect } from 'react';
 
 const KomunitaniPage = () => {
@@ -6,6 +6,19 @@ const KomunitaniPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [filter, setFilter] = useState('');
+
+    const getCommodityIcon = (commodity: string) => {
+        const lowerCaseCommodity = commodity.toLowerCase();
+        if (lowerCaseCommodity.includes('beras')) return 'rice_bowl';
+        if (lowerCaseCommodity.includes('daging ayam')) return 'kebab_dining';
+        if (lowerCaseCommodity.includes('telur ayam')) return 'egg';
+        if (lowerCaseCommodity.includes('bawang')) return 'compost';
+        if (lowerCaseCommodity.includes('cabai')) return 'local_fire_department';
+        if (lowerCaseCommodity.includes('daging sapi')) return 'food_bank';
+        if (lowerCaseCommodity.includes('gula')) return 'icecream';
+        if (lowerCaseCommodity.includes('minyak goreng')) return 'water_drop';
+        return 'local_florist';
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -17,13 +30,12 @@ const KomunitaniPage = () => {
             }
             const data = await res.json();
             if (Array.isArray(data)) {
-                // Filter out items that are not objects or don't have the required properties
                 const validData = data.filter(item => item && typeof item.komoditas === 'string' && typeof item.harga === 'number' && typeof item.perubahan === 'number');
                 setHargaPangan(validData);
             } else {
                 throw new Error('Format data tidak valid');
             }
-        } catch (err) {
+        } catch (err: any) {
             setError(err.message);
         } finally {
             setLoading(false);
@@ -106,7 +118,7 @@ const KomunitaniPage = () => {
                                         <div className="flex items-center">
                                             <div className={`w-12 h-12 ${item.perubahan > 0 ? 'bg-red-100' : 'bg-green-100'} rounded-full flex items-center justify-center mr-4`}>
                                                 <span className={`material-icons ${item.perubahan > 0 ? 'text-red-500' : 'text-green-500'}`}>
-                                                    {item.icon || 'local_florist'}
+                                                    {getCommodityIcon(item.komoditas)}
                                                 </span>
                                             </div>
                                             <div>

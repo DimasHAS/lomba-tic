@@ -8,18 +8,23 @@ import { usePathname } from 'next/navigation';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname();
-    const [userEmail, setUserEmail] = useState<string | null>(null);
+    const [userName, setUserName] = useState<string | null>(null);
+    const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchUser = async () => {
-            const { data, error } = await supabase.auth.getUser();
-            if (data?.user) {
-                setUserEmail(data.user.email || null);
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const username = user.user_metadata?.username || user.email?.split('@')[0] || 'User';
+                setUserName(username);
+                const avatar = user.user_metadata?.avatar_url || null;
+                setAvatarUrl(avatar);
             }
         };
 
         fetchUser();
     }, []);
+
     return (
         <div className="flex h-screen">
             <aside className="w-64 bg-green-800 text-white border-r border-green-700 h-full flex flex-col">
@@ -63,34 +68,28 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     </ul>
                     <h3 className="px-6 mt-6 mb-2 text-xs font-semibold tracking-wider text-green-400 uppercase">Tools</h3>
                     <ul>
+                        
                         <li>
-                            <a className="flex items-center px-6 py-3 text-white hover:bg-green-700" href="#">
-                                <span className="material-icons mr-3">analytics</span>
-                                Analytics
-                            </a>
-                        </li>
-                        <li>
-                            <a className="flex items-center px-6 py-3 text-white hover:bg-green-700" href="#">
+                            <Link href="/dashboard/settings" className={`flex items-center px-6 py-3 text-white hover:bg-green-700 ${pathname === '/dashboard/settings' ? 'bg-green-700 font-bold' : ''}`}>
                                 <span className="material-icons mr-3">settings</span>
                                 Settings
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
             </aside>
             <main className="flex-1 flex flex-col bg-gray-50 overflow-y-auto">
-                <header className="flex items-center justify-between h-20 px-6 bg-white border-b">
-                    <div>
-                        <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-                    </div>
+                <header className="flex items-center justify-end h-20 px-6 bg-white">
                     <div className="flex items-center">
                         <button className="p-2 rounded-full hover:bg-gray-100">
                             <span className="material-icons text-gray-600">notifications</span>
                         </button>
                         <div className="ml-4 flex items-center">
-                            <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center font-bold text-green-800 text-xl">PB</div>
+                            <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center font-bold text-green-800 text-xl overflow-hidden">
+                                {avatarUrl ? <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" /> : (userName ? userName.charAt(0).toUpperCase() : 'U')}
+                            </div>
                             <div className="ml-3">
-                                <p className="font-semibold text-md text-gray-800">{userEmail}</p>
+                                <p className="font-semibold text-md text-gray-800">{userName}</p>
                             </div>
                         </div>
                     </div>
