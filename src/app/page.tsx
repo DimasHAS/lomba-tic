@@ -134,12 +134,12 @@ export default function Home() {
 
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">
-      <div className="container mx-auto px-6 md:px-8">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.header
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-between items-center py-6 mb-10 md:mb-20"
+          className="flex justify-between items-center py-4 md:py-6 mb-10 md:mb-20"
         >
           <div className="flex items-center">
             <div className="bg-green-600 text-white font-bold text-xl w-10 h-10 flex items-center justify-center rounded-md mr-3">
@@ -150,13 +150,13 @@ export default function Home() {
         </motion.header>
 
         <main ref={mainRef}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center min-h-[70vh]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center min-h-[70vh] py-10 md:py-0">
             <motion.div
               style={{ y: yText, opacity: opacityText }}
               initial="hidden"
               animate="visible"
               variants={containerVariants}
-              className="text-center md:text-left"
+              className="text-center md:text-left order-2 md:order-1"
             >
               <motion.div variants={itemVariants} className="inline-flex items-center bg-white border border-gray-200 rounded-full py-1 px-2 mb-6 shadow-sm">
                 <span className="bg-green-100 text-green-700 text-sm font-semibold rounded-full px-3 py-1">
@@ -178,14 +178,14 @@ export default function Home() {
                   ></path>
                 </svg>
               </motion.div>
-              <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Teknologi AI untuk Petani Indonesia yang Lebih Maju
               </motion.h1>
-              <motion.p variants={itemVariants} className="text-gray-600 text-lg max-w-xl mx-auto md:mx-0 mb-10">
+              <motion.p variants={itemVariants} className="text-base md:text-lg max-w-xl mx-auto md:mx-0 mb-10">
                   Platform AI TaniMaju membantu petani meningkatkan produktivitas
                   dengan diagnosis tanaman, prediksi panen, dan komunitani.
                 </motion.p>
-              <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start">
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
                 <motion.a
                   className="bg-green-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-green-700 transition duration-300"
                   href="/login"
@@ -217,7 +217,7 @@ export default function Home() {
             </motion.div>
             <motion.div
               style={{ y: yImage, scale: scaleImage }}
-              className="relative hidden md:block"
+              className="relative hidden md:block order-1 md:order-2"
             >
               <div className="absolute -top-4 -left-4 w-full h-full bg-gray-100 rounded-2xl transform -rotate-3"></div>
               <div className="relative bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
@@ -278,11 +278,11 @@ export default function Home() {
           </div>
         </main>
 
-        <AnimatedSection className="py-20 md:py-28">
+        <AnimatedSection className="py-16 md:py-28">
           <div ref={featuresRef}>
             <div className="text-center mb-16">
               <p className="text-lg text-green-600 font-semibold">Teknologi Pertanian Cerdas</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-2">
                 Fitur TaniMaju untuk Optimalisasi
               </h2>
             </div>
@@ -302,10 +302,10 @@ export default function Home() {
                       <span className="material-icons text-green-600 text-3xl">{feature.icon}</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-sm md:text-base text-gray-600 mb-4">
                     {feature.desc}
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
@@ -318,7 +318,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="py-20 md:py-28 bg-gray-50 rounded-2xl">
+        <AnimatedSection className="py-16 md:py-28 bg-gray-50 rounded-2xl">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">TaniMaju dalam Aksi</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -347,7 +347,7 @@ export default function Home() {
           </motion.div>
         </AnimatedSection>
         
-        <AnimatedSection className="py-20 md:py-28">
+        <AnimatedSection className="py-16 md:py-28">
           <div ref={testimonialsRef}>
             <div className="text-center mb-16">
               <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1 rounded-full">
@@ -374,7 +374,7 @@ export default function Home() {
                   >
                     format_quote
                   </span>
-                  <p className="text-gray-600 mt-10 mb-6 z-10 relative">
+                  <p className="text-base md:text-lg text-gray-600 mt-10 mb-6 z-10 relative">
                     {testimonial.quote}
                   </p>
                   <div className="flex items-center">
@@ -414,7 +414,7 @@ export default function Home() {
                     src={testimonial.avatar}
                   />
                   <div className="flex-1">
-                    <p className="text-gray-600">
+                    <p className="text-sm md:text-base text-gray-600">
                       {testimonial.quote}
                     </p>
                     <p className="font-semibold text-gray-900 mt-4">{testimonial.name}</p>
@@ -432,8 +432,8 @@ export default function Home() {
           <div className="bg-green-50 rounded-2xl p-10 md:p-16 relative overflow-hidden">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dapatkan Wawasan Pertanian Langsung di Email Anda</h2>
-                <p className="text-gray-600 text-lg mb-8">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Dapatkan Wawasan Pertanian Langsung di Email Anda</h2>
+                <p className="text-sm md:text-base text-gray-600 text-lg mb-8">
                   Berlangganan buletin mingguan kami untuk mendapatkan tips, trik, dan berita terbaru seputar teknologi pertanian modern.
                 </p>
               </div>
@@ -461,8 +461,8 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <footer className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <footer className="py-10 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-2 pr-8">
               <div className="flex items-center mb-4">
                 <div className="bg-green-600 text-white font-bold text-xl w-10 h-10 flex items-center justify-center rounded-md mr-3">
@@ -470,7 +470,7 @@ export default function Home() {
                 </div>
                 <span className="text-2xl font-bold text-gray-900">TaniMaju</span>
               </div>
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
                 Memberdayakan petani Indonesia dengan teknologi AI terdepan.
               </p>
             </div>
