@@ -51,7 +51,7 @@ const testimonials = [
     quote: "Fitur monitoring cuaca sangat membantu. Saya jadi tahu kapan waktu terbaik untuk tanam dan panen. Kerugian karena cuaca buruk berkurang drastis.",
     name: "Bu Sri Wahyuni",
     role: "Petani Sayuran, Jawa Tengah",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDkRS-h98CsdFvdFG-BfWlH6fY-xfmNGfkH8yentCGqkYDq4Zam0nmBtZ7kvhMIkfjjWnPcQXR4LcNpKSZIQx9aKaQ-ZH-4jWtSMas4hdVd0zAwJBDI104xGLCqQaIS-svP-G4vu7124hsPiy9qgIHsQ6z9SMKnOzyzhn1a5yfT4ILgxmb6hPnMkkbuyY2WwXQ0VcQkVqNqomp0SEW-0PABxn7VBQvIVgn__Ijy1UO8C0nFOWP663_qMmLOftdvyqiwRPSQ2HYiYTZ",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
     verified: true,
   },
   {
@@ -59,7 +59,7 @@ const testimonials = [
     quote: "TaniMaju membantu saya kelola hama dengan lebih efektif. Penggunaan pestisida berkurang 30% tapi hasil tetap maksimal. Biaya operasional lebih hemat.",
     name: "Pak Ahmad Hidayat",
     role: "Petani Jagung, Jawa Timur",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBPzWS6ojkfYf3-CQiVt6fdpTgXb6likaaM3g1JDpQYvgHyQXD_aBZNAdE9QOYWd1-EtYlWSBW_CMy9F7ozK6kcGG8oZ3TQ3B3Jv4rRQTHRzWGnDj3L2rNX6iEkAQlSt3lIAQXhmC-9t95CTqyG0aJy7rtlj4q7Wa1QxtVICxWbh7J7mhMX5m2Y0zczH3M3rQl27HwAMysqYAZXr5M1uvj0mwOeYi-8RkkjSClqX2UaB8whiSPaE9OpY97h7VOdILX3KZI6k-Xvtr9mh",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
     verified: true,
   },
   {
@@ -67,7 +67,7 @@ const testimonials = [
     quote: "Sebelum pakai TaniMaju, saya sering bingung kapan waktu yang tepat untuk panen. Sekarang dengan sistem rekomendasi, hasil panen lebih berkualitas.",
     name: "Bu Siti Nurhaliza",
     role: "Petani Cabai, Sumatera Utara",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwdZqkIgCxQdzDGjNMXrVzkMjQIOMEjUC22_UF5Tq11vSXB_peM5jsPYYvMVpYG5fkhVG2XbbZ9hwcJxIKL4OxNkyiDgre5xRJigOBfuzksvUNdqLGL-cvPmcWq0tmVV1PyuqyVRQOCUhT3ONReV6KHHyGO7sEwXXu4xmjIZTBCYeNKYiX-sTUUsdwTJgcYbntGXWoudieP_rybQeTPVml1b1oF4h7kdE1t5TXaKj8VkLzPiwXZ0DYVitWdiQ9Sqk8C9FdX5YF8Sh25IV6_c29GI7KpAmUJCQXhkiCYrXSHJ6UT1MmhErf29s6IWin2prYY-6ftWBVfMc",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
     verified: true,
   },
 ];
@@ -78,28 +78,28 @@ const compactTestimonials = [
     quote: "\"Sistem peringatan dini untuk penyakit tanaman sangat akurat. Saya bisa ambil tindakan pencegahan sebelum penyakit menyebar luas.\"",
     name: "Bu Indra Kusuma",
     role: "Petani Kedelai, Yogyakarta",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBhGe8ICgmyU-bj0tuL3VlPMfAAT5vQTxlCxwEHVNg2He46qIQlrHMIvE5I-NRH6_zh9VfuJLsbM32hgqhY6NorbgYnnWr9gf7bzWV3HPsA1HT3WuDN66-i0NqAKA3-yPfaSJQoLnXX9R3VdM-bdEIoJSd3rqXfiskPZkWwDkv2eksRLKYkHHzWl3WsqhxNAywQ8kN1lOiAnuJUHJEQMuOpy92xM4D6La60sFNYEKw5gFaxB4cj-LNaqXy3CFMLb22CDHiH2KTpGfuQVOSuTd0hHCxT9Szvy-nCGH9i7s9qYI2rhIGAwEwkmgVkjAGqrY0SKdj1QVCaW4MXbVHMDJo",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
   },
   {
     type: "compact",
     quote: "\"TaniMaju membantu saya merencanakan jadwal tanam yang optimal. Dengan rotasi tanaman yang tepat, tanah tetap subur dan produksi stabil sepanjang tahun.\"",
     name: "Pak Agus Salim",
     role: "Petani Palawija, Sulawesi Selatan",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqvdl63HvqztZXFUP8rif-YNsMlbjfhHul0dAkEaPE1kjj3LawtwWcuejFbuTfBVN0NfQ6_c3OvPW08PUXlssM547HbjJ6eqPdaKogRz41cG0RG3v731jSCIJxlmyGyBgHhss9M4m0e-RVe3jyQQ4vyXZVqQXv4TGwKflXv7RZGAiZwwZGMSErvC2OGpwzNBFSXRZMy75pYYuX8uB4pBPyYZSSxa2C6nHxOielJ2UaB8whiSPaE9OpY97h7VOdILX3KZI6k-Xvtr9mh",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
   },
   {
     type: "compact",
     quote: "\"Sejak menggunakan TaniMaju, kualitas buah-buahan saya jauh lebih baik. Pembeli di pasar selalu mencari produk saya karena kualitasnya konsisten.\"",
     name: "Bu Dewi Lestari",
     role: "Petani Buah, Malang",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuCziDvEZdUcLDMiFMxFwFs5vg32-lb3aPWvTQyxmUWJSNQ2CDmP9GpmxywPCw2LoJjicC_I0j1iYFSGKmzFmJYn4M0-T8lR6PF7tEZ_IQLj3JiDqi1-aJjy1v3UnibAOf3fH6nzx6iROLiqiQ6RUmb5un7w6IqAYQwj9tA7wc_2AfQgY8wHvoe89Qs-T3Pl_newT1yCq0emGU2cCYrXSHJ6UT1MmhErf29s6IWin2prYY-6ftWBVfMc",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
   },
   {
     type: "compact",
     quote: "\"Panduan budidaya yang diberikan sangat detail dan mudah diikuti. Bahkan untuk tanaman baru yang belum pernah saya tanam sebelumnya.\"",
     name: "Pak Hario Susilo",
     role: "Petani Hortikultura, Bandung",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZcRjbrc6J68Adj6ZjtaIIV0JYChlZUike_6tF7MTN550P7IssiWBLS1E7YoveYUpy2LBdSXubNngYJaX-fQOduCs6RsCrgsqzFR-u8hU0vXxXhaK5V4ktbkMSrxciAYTFT2zDQaZKbwFjUIoVE1Fpb1y5N-w7XY75nlZGmBTjx2P7DP6Bz20FE3_qMmLOftdvyqiwRPSQ2HYiYTZ",
+    avatar: "https://via.placeholder.com/48x48.png?text=Avatar",
   },
 ];
 
@@ -182,10 +182,9 @@ export default function Home() {
                 Teknologi AI untuk Petani Indonesia yang Lebih Maju
               </motion.h1>
               <motion.p variants={itemVariants} className="text-gray-600 text-lg max-w-xl mx-auto md:mx-0 mb-10">
-                Platform AI TaniMaju membantu petani meningkatkan produktivitas
-                dengan diagnosis tanaman, prediksi panen, optimasi pupuk, dan
-                wawasan berbasis data satelit.
-              </motion.p>
+                  Platform AI TaniMaju membantu petani meningkatkan produktivitas
+                  dengan diagnosis tanaman, prediksi panen, dan komunitani.
+                </motion.p>
               <motion.div variants={itemVariants} className="flex items-center justify-center md:justify-start">
                 <motion.a
                   className="bg-green-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-green-700 transition duration-300"
@@ -291,7 +290,7 @@ export default function Home() {
               {[
                 { icon: "photo_camera", title: "Plant Doctor AI", desc: "Identifikasi penyakit tanaman instan menggunakan AI. Cukup foto daun untuk mendapat diagnosis akurat dan rekomendasi penanganan.", tag: "Real-time analysis", tagColor: "green" },
                 { icon: "trending_up", title: "Prediksi Panen Cerdas", desc: "Prediksi hasil panen berdasarkan data cuaca, kondisi tanah, dan pola pertumbuhan untuk strategi pemasaran yang lebih baik.", tag: "ML-powered", tagColor: "blue" },
-                { icon: "eco", title: "Optimasi Pupuk Satelit", desc: "Analisis citra satelit untuk menentukan kebutuhan pupuk spesifik setiap area lahan secara presisi dan efisien.", tag: "Satellite imagery", tagColor: "purple" },
+                { icon: "eco", title: "Komunitani", desc: "Kalkulator untuk memperkirakan jumlah pupuk yang diperlukan untuk setiap area lahan secara presisi dan efisien.", tag: "Kalkulator", tagColor: "purple" },
               ].map((feature, i) => (
                 <motion.div 
                   key={i}
@@ -334,28 +333,16 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="bg-white rounded-lg shadow-xl overflow-hidden aspect-video cursor-pointer group">
-              <div
-                className="relative w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1580910222051-9a1623a01600?q=80&w=2070&auto=format&fit=crop')" }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-                  <motion.div 
-                    className="w-20 h-20 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
-                    whileHover={{ scale: 1.1, backgroundColor: '#ffffff' }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <svg
-                      className="w-10 h-10 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
-                    </svg>
-                  </motion.div>
-                </div>
-              </div>
+            <div className="bg-white rounded-lg shadow-xl overflow-hidden aspect-video">
+              <video
+                className="w-full h-full object-cover"
+                src="/video/demo.mp4"
+                controls
+                loop
+                muted
+                autoPlay
+                playsInline
+              />
             </div>
           </motion.div>
         </AnimatedSection>

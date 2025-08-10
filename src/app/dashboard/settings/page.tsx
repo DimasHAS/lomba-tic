@@ -9,22 +9,22 @@ const SettingsPage = () => {
 
     return (
         <div className="flex-1 p-8 bg-gray-50">
-            <h1 className="text-4xl font-bold text-gray-800 mb-8">Settings</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-8">Pengaturan</h1>
             <div className="flex space-x-8">
                 {/* Settings Navigation */}
                 <aside className="w-1/4">
                     <nav className="space-y-2">
                         <a href="#" onClick={() => setActiveSection('profile')} className={`flex items-center px-4 py-3 rounded-lg ${activeSection === 'profile' ? 'bg-green-100 text-green-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}>
                             <span className="material-icons mr-3">person</span>
-                            Profile
+                            Profil
                         </a>
                         <a href="#" onClick={() => setActiveSection('security')} className={`flex items-center px-4 py-3 rounded-lg ${activeSection === 'security' ? 'bg-green-100 text-green-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}>
                             <span className="material-icons mr-3">lock</span>
-                            Security
+                            Keamanan
                         </a>
                         <a href="#" onClick={() => setActiveSection('notifications')} className={`flex items-center px-4 py-3 rounded-lg ${activeSection === 'notifications' ? 'bg-green-100 text-green-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}>
                             <span className="material-icons mr-3">notifications</span>
-                            Notifications
+                            Notifikasi
                         </a>
                     </nav>
                 </aside>
@@ -85,7 +85,7 @@ const ProfileSection = () => {
             if (error) {
                 setMessage(`Error: ${error.message}`);
             } else {
-                setMessage('Profile updated successfully!');
+                setMessage('Profil berhasil diperbarui!');
             }
         }
         setLoading(false);
@@ -128,27 +128,27 @@ const ProfileSection = () => {
 
     return (
         <div className="bg-white p-8 rounded-xl shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Profile Information</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Informasi Profil</h2>
             <div className="flex items-center space-x-6 mb-8">
                 <div className="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center font-bold text-green-800 text-4xl overflow-hidden">
                     {avatarUrl ? <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" /> : (username ? username.charAt(0).toUpperCase() : 'U')}
                 </div>
                 <div>
                     <label htmlFor="avatar-upload" className="cursor-pointer px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                        {uploading ? 'Uploading...' : 'Upload new picture'}
+                        {uploading ? 'Mengunggah...' : 'Unggah gambar baru'}
                     </label>
                     <input id="avatar-upload" type="file" accept="image/*" onChange={handleAvatarChange} className="hidden" disabled={uploading} />
-                    <p className="text-sm text-gray-500 mt-2">For best results, use an image at least 256x256px in .jpg or .png format.</p>
+                    <p className="text-sm text-gray-500 mt-2">Untuk hasil terbaik, gunakan gambar minimal 256x256px dalam format .jpg atau .png.</p>
                 </div>
             </div>
             <form onSubmit={handleProfileUpdate}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-md font-medium text-gray-800 mb-2">Username</label>
+                        <label className="block text-md font-medium text-gray-800 mb-2">Nama Pengguna</label>
                         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="w-full border border-gray-300 rounded-lg p-3" />
                     </div>
                     <div>
-                        <label className="block text-md font-medium text-gray-800 mb-2">Email Address</label>
+                        <label className="block text-md font-medium text-gray-800 mb-2">Alamat Email</label>
                         <input type="email" value={userEmail || ''} disabled className="w-full border border-gray-300 rounded-lg p-3 bg-gray-100" />
                     </div>
                     <div>
@@ -158,7 +158,7 @@ const ProfileSection = () => {
                 </div>
                 {message && <p className={`p-3 rounded-lg my-4 ${message.startsWith('Error') ? 'text-red-600 bg-red-100' : 'text-green-600 bg-green-100'}`}>{message}</p>}
                 <div className="mt-8 text-right">
-                    <button type="submit" className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700" disabled={loading}>Save Changes</button>
+                    <button type="submit" className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700" disabled={loading}>Simpan Perubahan</button>
                 </div>
             </form>
         </div>
@@ -176,14 +176,14 @@ const SecuritySection = () => {
         setMessage('');
         setError('');
         if (newPassword.length < 6) {
-            setError('Password should be at least 6 characters.');
+            setError('Kata sandi minimal 6 karakter.');
             return;
         }
         const { error } = await supabase.auth.updateUser({ password: newPassword });
         if (error) {
             setError(error.message);
         } else {
-            setMessage('Password updated successfully!');
+            setMessage('Kata sandi berhasil diperbarui!');
             setNewPassword('');
         }
     };
@@ -195,22 +195,22 @@ const SecuritySection = () => {
 
     return (
         <div className="bg-white p-8 rounded-xl shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Security Settings</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Pengaturan Keamanan</h2>
             <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">Change Password</h3>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Ubah Kata Sandi</h3>
                 <form onSubmit={handleUpdatePassword}>
-                    <label className="block text-md font-medium text-gray-800 mb-2">New Password</label>
+                    <label className="block text-md font-medium text-gray-800 mb-2">Kata Sandi Baru</label>
                     <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} className="w-full border border-gray-300 rounded-lg p-3 mb-4" />
                     {message && <p className="text-green-600 bg-green-100 p-3 rounded-lg mb-4">{message}</p>}
                     {error && <p className="text-red-600 bg-red-100 p-3 rounded-lg mb-4">{error}</p>}
-                    <button type="submit" className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700">Update Password</button>
+                    <button type="submit" className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700">Perbarui Kata Sandi</button>
                 </form>
             </div>
             <hr className="my-8" />
             <div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">Logout</h3>
-                <p className="text-gray-600 mb-4">Instantly log out from your account.</p>
-                <button onClick={handleLogout} className="px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">Logout</button>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Keluar</h3>
+                <p className="text-gray-600 mb-4">Keluar dari akun Anda secara instan.</p>
+                <button onClick={handleLogout} className="px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">Keluar</button>
             </div>
         </div>
     );
@@ -243,12 +243,12 @@ const NotificationsSection = () => {
 
     return (
         <div className="bg-white p-8 rounded-xl shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Notification Settings</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Pengaturan Notifikasi</h2>
             <div className="space-y-6">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h3 className="text-lg font-semibold text-gray-700">Email Notifications</h3>
-                        <p className="text-gray-500">Receive email notifications for important updates.</p>
+                        <h3 className="text-lg font-semibold text-gray-700">Notifikasi Email</h3>
+                        <p className="text-gray-500">Menerima notifikasi email untuk pembaruan penting.</p>
                     </div>
                     <label className="switch">
                         <input type="checkbox" checked={prefs.email} onChange={(e) => handleNotificationChange('email', e.target.checked)} />
@@ -257,8 +257,8 @@ const NotificationsSection = () => {
                 </div>
                 <div className="flex justify-between items-center">
                     <div>
-                        <h3 className="text-lg font-semibold text-gray-700">Push Notifications</h3>
-                        <p className="text-gray-500">Get push notifications on your devices.</p>
+                        <h3 className="text-lg font-semibold text-gray-700">Notifikasi Push</h3>
+                        <p className="text-gray-500">Dapatkan notifikasi push di perangkat Anda.</p>
                     </div>
                     <label className="switch">
                         <input type="checkbox" checked={prefs.push} onChange={(e) => handleNotificationChange('push', e.target.checked)} />
@@ -267,8 +267,8 @@ const NotificationsSection = () => {
                 </div>
                 <div className="flex justify-between items-center">
                     <div>
-                        <h3 className="text-lg font-semibold text-gray-700">Weekly Summary</h3>
-                        <p className="text-gray-500">Receive a weekly summary of your farm's activity.</p>
+                        <h3 className="text-lg font-semibold text-gray-700">Ringkasan Mingguan</h3>
+                        <p className="text-gray-500">Menerima ringkasan mingguan aktivitas pertanian Anda.</p>
                     </div>
                     <label className="switch">
                         <input type="checkbox" checked={prefs.weekly} onChange={(e) => handleNotificationChange('weekly', e.target.checked)} />
