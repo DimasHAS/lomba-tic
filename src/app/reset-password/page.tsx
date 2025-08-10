@@ -3,18 +3,16 @@
 import { useState } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
+import { useNotification } from '../components/NotificationContext';
 
 export default function ResetPassword() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
   const supabase = createClientComponentClient();
+  const { showNotification } = useNotification();
 
   const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError('');
-    setMessage('');
     setLoading(true);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -22,9 +20,9 @@ export default function ResetPassword() {
     });
 
     if (error) {
-      setError(`Error: ${error.message}`);
+      showNotification(`Error: ${error.message}`, 'error');
     } else {
-      setMessage('Jika email Anda terdaftar, Anda akan menerima link untuk reset password.');
+      showNotification('Jika email Anda terdaftar, Anda akan menerima link untuk reset password.', 'success');
     }
     setLoading(false);
   };
@@ -64,9 +62,6 @@ export default function ResetPassword() {
                       placeholder="contoh@email.com"
                     />
                   </div>
-
-                  {message && <p className="text-sm font-medium text-center text-green-600 bg-green-50 p-3 rounded-lg">{message}</p>}
-                  {error && <p className="text-sm font-medium text-center text-red-600 bg-red-50 p-3 rounded-lg">{error}</p>}
 
                   <div>
                     <button

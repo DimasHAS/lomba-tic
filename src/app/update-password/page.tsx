@@ -1,39 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState } 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useNotification } from '../components/NotificationContext';
 
 export default function UpdatePassword() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
   const supabase = createClientComponentClient();
   const router = useRouter();
+  const { showNotification } = useNotification();
 
   const handleUpdatePassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password.length < 6) {
-      setError('Password harus lebih dari 6 karakter.');
+      showNotification('Password harus lebih dari 6 karakter.', 'error');
       return;
     }
     if (password !== confirmPassword) {
-      setError('Password tidak cocok!');
+      showNotification('Password tidak cocok!', 'error');
       return;
     }
-    setError('');
-    setMessage('');
     setLoading(true);
 
     const { error } = await supabase.auth.updateUser({ password });
 
     if (error) {
-      setError(`Error: ${error.message}`);
+      showNotification(`Error: ${error.message}`, 'error');
     } else {
-      setMessage('Password Anda berhasil diperbarui. Anda akan dialihkan ke halaman login.');
+      showNotification('Password Anda berhasil diperbarui. Anda akan dialihkan ke halaman login.', 'success');
       setTimeout(() => {
         router.push('/login');
       }, 3000);

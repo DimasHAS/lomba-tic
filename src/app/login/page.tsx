@@ -6,12 +6,14 @@ import Link from 'next/link';
 import supabase from '../../config/supabaseClient';
 
 import { useRouter } from 'next/navigation';
+import { useNotification } from '../components/NotificationContext';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
+    const { showNotification } = useNotification();
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -21,9 +23,10 @@ const LoginPage = () => {
                 password: password,
             });
             if (error) throw error;
+            showNotification('Login berhasil!', 'success');
             router.push('/dashboard');
         } catch (error: any) {
-            alert(error.message);
+            showNotification(error.message, 'error');
         }
     };
 

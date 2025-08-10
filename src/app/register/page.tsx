@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import supabase from '../../config/supabaseClient';
+import { useNotification } from '../components/NotificationContext';
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -11,11 +12,12 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const { showNotification } = useNotification();
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            alert('Password dan konfirmasi password tidak cocok!');
+            showNotification('Password dan konfirmasi password tidak cocok!', 'error');
             return;
         }
         try {
@@ -30,10 +32,10 @@ const RegisterPage = () => {
                 }
             });
             if (error) throw error;
-            alert('Registration successful! Please check your email to verify your account.');
+            showNotification('Pendaftaran berhasil! Silakan cek email Anda untuk memverifikasi akun Anda.', 'success');
             // Redirect user or update UI
         } catch (error: any) {
-            alert(error.message);
+            showNotification(error.message, 'error');
         }
     };
 
