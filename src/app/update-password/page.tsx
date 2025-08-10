@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } 'react';
+import { useState } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -100,8 +100,7 @@ export default function UpdatePassword() {
                     </div>
                   </div>
 
-                  {message && <p className="text-sm font-medium text-center text-green-600 bg-green-50 p-3 rounded-lg">{message}</p>}
-                  {error && <p className="text-sm font-medium text-center text-red-600 bg-red-50 p-3 rounded-lg">{error}</p>}
+                  
 
                   <div>
                     <button

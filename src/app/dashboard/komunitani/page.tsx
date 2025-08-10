@@ -1,10 +1,19 @@
 'use client';
 import { useState, useEffect } from 'react';
 
+interface HargaPanganItem {
+    komoditas: string;
+    harga: number;
+    perubahan: number;
+    lokasi: string;
+    waktu: string;
+    icon: string;
+}
+
 const KomunitaniPage = () => {
-    const [hargaPangan, setHargaPangan] = useState([]);
+    const [hargaPangan, setHargaPangan] = useState<HargaPanganItem[]>([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
     const [filter, setFilter] = useState('');
 
     const getCommodityIcon = (commodity: string) => {
@@ -24,13 +33,35 @@ const KomunitaniPage = () => {
         setLoading(true);
         setError(null);
         try {
-            const res = await fetch('/api/harga-pangan');
+            const res = await fetch('/api/harga-pangan'); // Always fetch the latest data
             if (!res.ok) {
                 throw new Error('Gagal mengambil data');
             }
-            const data = await res.json();
+            const data: HargaPanganItem[] = await res.json();
             if (Array.isArray(data)) {
-                const validData = data.filter(item => item && typeof item.komoditas === 'string' && typeof item.harga === 'number' && typeof item.perubahan === 'number');
+                const validData = data.filter((item: HargaPanganItem) => item && typeof item.komoditas === 'string' && typeof item.harga === 'number' && typeof item.perubahan === 'number');
+                setHargaPangan(validData);
+            } else {
+                throw new Error('Format data tidak valid');
+            }
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleLiveUpdate = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const res = await fetch('/api/harga-pangan', { method: 'POST' }); // Trigger scrape
+            if (!res.ok) {
+                throw new Error('Gagal memperbarui data');
+            }
+            const data: HargaPanganItem[] = await res.json();
+            if (Array.isArray(data)) {
+                const validData = data.filter((item: HargaPanganItem) => item && typeof item.komoditas === 'string' && typeof item.harga === 'number' && typeof item.perubahan === 'number');
                 setHargaPangan(validData);
             } else {
                 throw new Error('Format data tidak valid');
@@ -43,10 +74,10 @@ const KomunitaniPage = () => {
     };
 
     useEffect(() => {
-        fetchData();
+        fetchData(); // Initial data fetch on component mount
     }, []);
 
-    const filteredData = hargaPangan.filter(item =>
+    const filteredData = hargaPangan.filter((item: HargaPanganItem) =>
         item && typeof item.komoditas === 'string' && item.komoditas.toLowerCase().includes(filter.toLowerCase())
     );
 
@@ -63,7 +94,7 @@ const KomunitaniPage = () => {
                     <span className="material-icons mr-3 text-green-500">bar_chart</span> Monitor Harga Pangan Nasional
                 </h1>
                 <button 
-                    onClick={fetchData}
+                    onClick={handleLiveUpdate}
                     className="px-5 py-3 text-md font-semibold text-white bg-green-500 rounded-full shadow-md hover:bg-green-600 transition-colors duration-300 flex items-center"
                 >
                     <span className={`material-icons text-base mr-2 ${loading ? 'animate-spin' : ''}`}>
